@@ -1,0 +1,7 @@
+19:53:42.864 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 10120 (H:\memeClimb\target\classes started by Yevhenii in H:\memeClimb)
+19:53:42.870 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+19:53:49.107 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 7.016 seconds (process running for 8.14)
+19:54:24.046 [main] INFO  u.c.m.MemeClimbApplicationTests - Starting MemeClimbApplicationTests using Java 17.0.7 with PID 13984 (started by Yevhenii in H:\memeClimb)
+19:54:24.049 [main] INFO  u.c.m.MemeClimbApplicationTests - No active profile set, falling back to 1 default profile: "Blockchain"
+19:55:09.669 [main] INFO  u.c.m.MemeClimbApplicationTests - Starting MemeClimbApplicationTests using Java 17.0.7 with PID 1280 (started by Yevhenii in H:\memeClimb)
+19:55:09.671 [main] INFO  u.c.m.MemeClimbApplicationTests - No active profile set, falling back to 1 default profile: "Blockchain"

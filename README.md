@@ -1,2 +1,0 @@
-# MemeClimb
-Just memeClimb

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet logicalFilePath="0-init-all-access"
+               id="1-init-uuid-function" author="y.z.">
+        <comment>init uuid function</comment>
+        <sql>
+            CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+        </sql>
+    </changeSet>
+
+    <changeSet logicalFilePath="0-init-all-access"
+               id="2-create-user-and-access" author="y.z.">
+        <comment>create user and access</comment>
+        <sql>
+            CREATE USER backenduser WITH PASSWORD '1';
+            GRANT ALL PRIVILEGES ON DATABASE "memeClimb" to backenduser;
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

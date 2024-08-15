@@ -1,0 +1,44 @@
+version: '3.1'
+
+services:
+  app:
+    image: 'spring-boot:latest'
+    container_name: memeBounty
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ${PWD}/log:/log
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/memeClimb
+      - SPRING_DATASOURCE_USERNAME=memeBounty
+      - SPRING_DATASOURCE_PASSWORD=memeBounty
+
+  postgres:
+    image: 'postgres:15-alpine'
+    container_name: postgres
+    environment:
+      POSTGRES_USER: memeBounty
+      POSTGRES_PASSWORD: memeBounty
+      POSTGRES_DB: memeClimb
+      POSTGRES_PORT: 5432
+      POSTGRES_HOST: postgres
+    expose:
+      - "5432"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+volumes:
+  postgres-data:

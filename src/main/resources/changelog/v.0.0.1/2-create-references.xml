@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet logicalFilePath="2-create-references"
+               id="1-create-user_and_pool-user-reference" author="y.z.">
+        <comment>create user_and_pool user reference</comment>
+        <sql>
+            ALTER TABLE "user_and_pool" ADD CONSTRAINT user_and_pool_user_fk FOREIGN KEY (user_id) REFERENCES "user" (id) ON DELETE CASCADE
+        </sql>
+    </changeSet>
+
+    <changeSet logicalFilePath="2-create-references"
+               id="2-create-user_and_pool-pool-reference" author="y.z.">
+        <comment>create user_and_pool pool reference</comment>
+        <sql>
+            ALTER TABLE "user_and_pool" ADD CONSTRAINT user_and_pool_pool_fk FOREIGN KEY (pool_id) REFERENCES "pool" (id) ON DELETE CASCADE
+        </sql>
+    </changeSet>
+
+    <changeSet logicalFilePath="2-create-references"
+               id="3-create-user_and_pool_winner-user-reference" author="y.z.">
+        <comment>create user_and_pool_winner user reference</comment>
+        <sql>
+            ALTER TABLE "user_and_pool_winner" ADD CONSTRAINT user_and_pool_winner_user_fk FOREIGN KEY (user_id) REFERENCES "user" (id) ON DELETE CASCADE
+        </sql>
+    </changeSet>
+
+    <changeSet logicalFilePath="2-create-references"
+               id="4-create-user_and_pool_winner-pool-reference" author="y.z.">
+        <comment>create user_and_pool_winner pool reference</comment>
+        <sql>
+            ALTER TABLE "user_and_pool_winner" ADD CONSTRAINT user_and_pool_winner_pool_fk FOREIGN KEY (pool_id) REFERENCES "pool" (id) ON DELETE CASCADE
+        </sql>
+    </changeSet>
+
+    <changeSet logicalFilePath="2-create-references"
+               id="5-create-step_and_pool-reference" author="y.z.">
+        <comment>create step_and_pool reference</comment>
+        <sql>
+            ALTER TABLE "step" ADD CONSTRAINT step_pool_fk FOREIGN KEY (pool_id) REFERENCES "pool" (id) ON DELETE CASCADE
+        </sql>
+    </changeSet>
+
+    <changeSet logicalFilePath="2-create-references"
+               id="6-create-user_spl_address-user-reference" author="y.z.">
+        <comment>create user_spl_address and user reference</comment>
+        <sql>
+            ALTER TABLE "user_spl_address" ADD CONSTRAINT user_spl_address_user_fk FOREIGN KEY (user_id) REFERENCES "user" (id) ON DELETE CASCADE
+        </sql>
+    </changeSet>
+
+    <changeSet logicalFilePath="2-create-references"
+               id="7-create-user_spl_address-coin-reference" author="y.z.">
+        <comment>create user_spl_address and coin reference</comment>
+        <sql>
+            ALTER TABLE "user_spl_address" ADD CONSTRAINT user_spl_address_coin_fk FOREIGN KEY (coin_id) REFERENCES "coin" (id) ON DELETE CASCADE
+        </sql>
+    </changeSet>
+
+    <changeSet logicalFilePath="2-create-references"
+               id="8-create-pool_and_coin-pool-reference" author="y.z.">
+        <comment>create pool_and_coin and pool reference</comment>
+        <sql>
+            ALTER TABLE "pool_and_coin" ADD CONSTRAINT pool_and_coin_pool_fk FOREIGN KEY (pool_id) REFERENCES "pool" (id) ON DELETE CASCADE
+        </sql>
+    </changeSet>
+
+    <changeSet logicalFilePath="2-create-references"
+               id="9-create-pool_and_coin-coin-reference" author="y.z.">
+        <comment>create pool_and_coin and coin reference</comment>
+        <sql>
+            ALTER TABLE "pool_and_coin" ADD CONSTRAINT pool_and_coin_coin_fk FOREIGN KEY (coin_id) REFERENCES "coin" (id) ON DELETE CASCADE
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

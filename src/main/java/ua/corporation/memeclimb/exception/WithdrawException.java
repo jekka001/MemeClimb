@@ -1,0 +1,17 @@
+package ua.corporation.memeclimb.exception;
+
+public class WithdrawException extends RuntimeException{
+
+    public WithdrawException(String message) {
+        super(message);
+    }
+
+    public WithdrawException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public WithdrawException(Throwable cause) {
+        super(cause);
+    }
+
+}

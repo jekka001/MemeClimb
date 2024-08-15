@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet logicalFilePath="1-create-tables"
+               id="1-create-user-table" author="y.z.">
+        <comment>create user table</comment>
+        <sql>
+            CREATE TABLE "user"
+            (
+                id                   uuid        NOT NULL DEFAULT uuid_generate_v4(),
+                name                 varchar(50) NOT NULL,
+                telegram_id          varchar(50) NOT NULL,
+                nothing              bytea       NOT NULL,
+                nothing_a_lot        varchar(50),
+                chosen_pool_id       uuid,
+                page                 numeric(5)           DEFAULT 0,
+                initialized_withdraw boolean     NOT NULL DEFAULT FALSE,
+                deactivate           boolean     NOT NULL DEFAULT FALSE,
+                CONSTRAINT user_pk PRIMARY KEY (id),
+                CONSTRAINT unq_user_login UNIQUE (telegram_id)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet logicalFilePath="1-create-tables"
+               id="2-create-pool-table" author="y.z.">
+        <comment>create pool table</comment>
+        <sql>
+            CREATE TABLE "pool"
+            (
+                id                uuid           NOT NULL DEFAULT uuid_generate_v4(),
+                name              varchar(50)    NOT NULL,
+                initial_fee       numeric(10, 5) NOT NULL,
+                probability_win   numeric(5, 2)  NOT NULL,
+                ratio_probability numeric(5, 2)  NOT NULL,
+                ratio_fee         numeric(5, 2)  NOT NULL,
+                draw_date         timestamp      NOT NULL DEFAULT now(),
+                CONSTRAINT pool_pk PRIMARY KEY (id)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet logicalFilePath="1-create-tables"
+               id="3-create-user_and_pool-table" author="y.z.">
+        <comment>create user_and_pool table</comment>
+        <sql>
+            CREATE TABLE "user_and_pool"
+            (
+                id          uuid           NOT NULL DEFAULT uuid_generate_v4(),
+                user_id     uuid           NOT NULL,
+                pool_id     uuid           NOT NULL,
+                user_step   numeric(5)     NOT NULL DEFAULT 0,
+                spend_money numeric(20, 2) NOT NULL DEFAULT 0,
+                is_firstly  boolean        NOT NULL DEFAULT TRUE,
+                CONSTRAINT user_and_pool_pk PRIMARY KEY (id)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet logicalFilePath="1-create-tables"
+               id="4-create-user_and_pool_winner-table" author="y.z.">
+        <comment>create user_and_pool_winner table</comment>
+        <sql>
+            CREATE TABLE "user_and_pool_winner"
+            (
+                id      uuid NOT NULL DEFAULT uuid_generate_v4(),
+                user_id uuid NOT NULL,
+                pool_id uuid NOT NULL,
+                CONSTRAINT user_and_pool_winner_pk PRIMARY KEY (id)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet logicalFilePath="1-create-tables"
+               id="5-create-step-table" author="y.z.">
+        <comment>create step table</comment>
+        <sql>
+            CREATE TABLE "step"
+            (
+                id             uuid          NOT NULL DEFAULT uuid_generate_v4(),
+                number         numeric(5)    NOT NULL,
+                text_number    varchar(10)   NOT NULL,
+                second_message varchar(100)  NOT NULL,
+                third_message  varchar(100)  NOT NULL,
+                price_chance   numeric(5, 2) NOT NULL,
+                pool_id        uuid          NOT NULL,
+                CONSTRAINT step_pk PRIMARY KEY (id)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet logicalFilePath="1-create-tables"
+               id="6-create-coin-table" author="y.z.">
+        <comment>create coin table</comment>
+        <sql>
+            CREATE TABLE "coin"
+            (
+                id         uuid            NOT NULL DEFAULT uuid_generate_v4(),
+                name       varchar(50)     NOT NULL,
+                symbol     varchar(10)     NOT NULL,
+                decimals   numeric(5)      NOT NULL,
+                amount     numeric(100, 2) NOT NULL DEFAULT 0,
+                amount_raw numeric(30)     NOT NULL DEFAULT 0,
+                mint       varchar(100)    NOT NULL,
+                main       boolean         NOT NULL DEFAULT false,
+                CONSTRAINT coin_pk PRIMARY KEY (id)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet logicalFilePath="1-create-tables"
+               id="7-create-user_spl_address-table" author="y.z.">
+        <comment>create user_and_coin table</comment>
+        <sql>
+            CREATE TABLE "user_spl_address"
+            (
+                id                       uuid        NOT NULL DEFAULT uuid_generate_v4(),
+                user_id                  uuid        NOT NULL,
+                coin_id                  uuid        NOT NULL,
+                associated_token_address varchar(50) NOT NULL,
+                CONSTRAINT user_spl_address_pk PRIMARY KEY (id)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet logicalFilePath="1-create-tables"
+               id="8-create-pool_and_coin-table" author="y.z.">
+        <comment>create pool_and_coin table</comment>
+        <sql>
+            CREATE TABLE "pool_and_coin"
+            (
+                id         uuid    NOT NULL DEFAULT uuid_generate_v4(),
+                pool_id    uuid    NOT NULL,
+                coin_id    uuid    NOT NULL,
+                top_reward boolean NOT NULL DEFAULT false,
+                usd_prize  numeric(30),
+                CONSTRAINT pool_and_coin_pk PRIMARY KEY (id)
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
