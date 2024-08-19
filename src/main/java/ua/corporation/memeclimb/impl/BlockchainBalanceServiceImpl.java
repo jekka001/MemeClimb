@@ -1,8 +1,10 @@
 package ua.corporation.memeclimb.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
+import ua.corporation.memeclimb.entity.main.PaymentInformation;
 import ua.corporation.memeclimb.entity.main.SpinState;
 import ua.corporation.memeclimb.entity.main.dto.CoinDto;
 import ua.corporation.memeclimb.entity.main.dto.UserDto;
@@ -13,6 +15,10 @@ import ua.corporation.memeclimb.service.*;
 @RequiredArgsConstructor
 @Profile("Blockchain")
 public class BlockchainBalanceServiceImpl implements BalanceService {
+    @Value("${unit.limit}")
+    private int unitLimit;
+    @Value("${unit.price}")
+    private int unitPrice;
     public static final Integer MULTIPLY_6 = 1_000_000;
     private static final double AROUND = 0.99;
     private final MoralisService moralisService;
@@ -27,32 +33,49 @@ public class BlockchainBalanceServiceImpl implements BalanceService {
 
     @Override
     public CoinDto addPrize(UserDto user, double prize, SpinState spinState) {
-        double usdPrize;
-        CoinDto winToken;
-        long fee = solanaService.getFee();
-        UserDto server = userService.getServerWallet();
-        if (spinState.equals(SpinState.ALL_STEP)) {
-            winToken = coinService.getPoolRewardToken(user.getChosenPoolId());
-            CoinDto mainCoin = coinService.getMainCoin();
-            mainCoin.setAmountRaw(fee);
+        boolean isAllSteps = spinState.equals(SpinState.ALL_STEPS);
 
-            usdPrize = getUsdPrize(prize, mainCoin);
-        } else {
-            usdPrize = prize;
-            winToken = coinService.getTopRewardToken(user.getChosenPoolId());
-        }
-        double countOfToken = getCountOfToken(winToken, usdPrize);
-        winToken.setAmount(countOfToken);
+        PaymentInformation paymentInformation =
+                isAllSteps ?
+                        getPaymentForSendPoolReward(user, prize) :
+                        getPaymentForSendTopReward(user, prize);
 
-        solanaService.sendPrize(user, winToken, server, usdPrize * MULTIPLY_6);
+        solanaService.sendPrize(paymentInformation);
 
-        return winToken;
+        return paymentInformation.getCoin();
+    }
+
+    private PaymentInformation getPaymentForSendPoolReward(UserDto user, double prize) {
+        CoinDto mainCoin = coinService.getMainCoin();
+
+        long fee = solanaService.getFee(unitLimit, unitPrice, mainCoin);
+        mainCoin.setAmount(fee);
+        double usdPrize = getUsdPrize(prize, mainCoin);
+        CoinDto winToken = coinService.getPoolRewardToken(user.getChosenPoolId());
+
+        return getPaymentForSendPrize(usdPrize, winToken, user);
     }
 
     private double getUsdPrize(double prize, CoinDto mainCoin) {
         double mainTokenUsdPrice = moralisService.getPriceForCoin(mainCoin);
 
         return mainTokenUsdPrice * (prize - mainCoin.getAmountByAmountRaw());
+    }
+
+    private PaymentInformation getPaymentForSendTopReward(UserDto user, double prize) {
+        CoinDto winToken = coinService.getTopRewardToken(user.getChosenPoolId());
+
+        return getPaymentForSendPrize(prize, winToken, user);
+    }
+
+    private PaymentInformation getPaymentForSendPrize(double usdPrize, CoinDto winToken, UserDto user) {
+        UserDto server = userService.getServerWallet();
+
+        double countOfToken = getCountOfToken(winToken, usdPrize);
+        winToken.setAmount(countOfToken);
+
+        return PaymentInformation.getInstanceSendPrize(server, winToken, user, usdPrize * MULTIPLY_6,
+                unitLimit, unitPrice, user);
     }
 
     private double getCountOfToken(CoinDto winToken, double usdPrize) {
@@ -67,20 +90,24 @@ public class BlockchainBalanceServiceImpl implements BalanceService {
         coinDto.setAmountRawByAmount(fee);
         UserDto server = userService.getServerWallet();
 
-        solanaService.getPayFromUser(user, coinDto, server);
+        PaymentInformation paymentInformation =
+                PaymentInformation.getInstancePayForSpin(user, coinDto, server, unitLimit, unitPrice, user);
+
+        solanaService.getPayFromUser(paymentInformation);
     }
 
     @Override
-    public boolean checkBalance(UserDto user, double fee, long chatId) {
+    public boolean checkBalance(UserDto user, double fee) {
         CoinDto mainCoin = coinService.getMainCoin();
-        long feeTrans = (1400000 * 100000L) * 10000 / mainCoin.getDecimalMultiplayer();
+        long feeTrans = solanaService.getFee(unitLimit, unitPrice, mainCoin);
         mainCoin.setAmountRaw(solanaService.getAccountBalance(user));
 
         double userHasMoney = mainCoin.getAmountByAmountRaw();
-        if (userHasMoney < (fee + (feeTrans * 1.0f / mainCoin.getDecimalMultiplayer()))) {
-            throw new EmptyBalanceException("Balance empty", chatId);
+
+        if (userHasMoney < (fee + (feeTrans * 1.0f / mainCoin.getDecimalMultiplayer())) * 1.1) {
+            throw new EmptyBalanceException("Balance empty");
         } else {
-            return userHasMoney >= (fee + (feeTrans * 1.0f / mainCoin.getDecimalMultiplayer()));
+            return userHasMoney >= (fee + (feeTrans * 1.0f / mainCoin.getDecimalMultiplayer())) * 1.1;
         }
     }
 
@@ -96,6 +123,9 @@ public class BlockchainBalanceServiceImpl implements BalanceService {
 
     @Override
     public void withdraw(UserDto user, String withdrawWallet) {
-        solanaService.withdraw(user, withdrawWallet);
+        PaymentInformation paymentInformation =
+                PaymentInformation.getInstanceWithdraw(user, withdrawWallet, 1, 1, user);
+
+        solanaService.withdraw(paymentInformation);
     }
 }

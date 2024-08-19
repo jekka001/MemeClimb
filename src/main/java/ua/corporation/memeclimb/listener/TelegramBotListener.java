@@ -10,15 +10,15 @@ import com.pengrad.telegrambot.request.SendMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import ua.corporation.memeclimb.exception.EmptyBalanceException;
-import ua.corporation.memeclimb.exception.PayPrizeException;
+import ua.corporation.memeclimb.entity.main.MemeMessage;
+import ua.corporation.memeclimb.exception.*;
 import ua.corporation.memeclimb.lang.Internationalization;
 import ua.corporation.memeclimb.service.TelegramCreator;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import static ua.corporation.memeclimb.config.Markup.PROBLEM_WITH_BALANCE;
 import static ua.corporation.memeclimb.config.Markup.START_BUTTONS;
@@ -28,8 +28,9 @@ public class TelegramBotListener implements UpdatesListener {
 
     private final TelegramBot memeClimbBot;
     private final TelegramCreator creator;
-    private final Map<Long, List<Integer>> chatIdToMessageId = new HashMap<>();
+    private final List<MemeMessage> memeMessages = new ArrayList<>();
     private final Internationalization internationalization = new Internationalization();
+    private final ExecutorService threadExecutor = Executors.newFixedThreadPool(100);
 
 
     public TelegramBotListener(@Autowired TelegramCreator creator,
@@ -41,115 +42,109 @@ public class TelegramBotListener implements UpdatesListener {
 
     @Override
     public int process(List<Update> updates) {
-        updates.forEach(this::update);
+        updates.forEach(this::createAnswer);
 
         return UpdatesListener.CONFIRMED_UPDATES_ALL;
     }
 
-    private void update(Update update) {
+    private void createAnswer(Update update) {
         if (update.myChatMember() == null) {
-            boolean isMessage = update.message() != null;
-            long chatId = getChatId(update, isMessage);
-
-            prepareChat(update, isMessage, chatId);
-            Thread thread = new Thread(() -> makeAnswer(update, isMessage, chatId));
-            thread.start();
+            MemeMessage memeMessage = new MemeMessage(update);
+            if (!memeMessages.contains(memeMessage)) {
+                prepareChat(memeMessage);
+                threadExecutor.execute(() -> makeAnswer(memeMessage));
+            }
         }
-
-        //TODO write myChatMember process
     }
 
-    private void makeAnswer(Update update, boolean isMessage, long chatId) {
-        Message messageTemp = addProcessingMessage(update, isMessage, chatId);
+    private void prepareChat(MemeMessage memeMessage) {
+        clearChat(memeMessage);
+        memeMessages.add(memeMessage);
+    }
+
+    private void clearChat(MemeMessage memeMessage) {
+        long chatId = memeMessage.getChatId();
+
+        memeMessages.stream()
+                .filter(message -> message.getChatId() == chatId)
+                .forEach(this::executeDeleteMessage);
+    }
+
+    private void executeDeleteMessage(MemeMessage message) {
+        DeleteMessage deleteMessage = new DeleteMessage(message.getChatId(), message.getMessageId());
+        memeClimbBot.execute(deleteMessage);
+    }
+
+    private void makeAnswer(MemeMessage memeMessage) {
+        MemeMessage processingMessage = sendMessageBeforeAnswer(memeMessage);
 
         try {
-            sendAnswer(update, isMessage, chatId);
-        } catch (EmptyBalanceException emptyBalance) {
-            Message message = memeClimbBot.execute(balanceEmpty(emptyBalance)).message();
-            saveShownMessage(message.chat().id(), message.messageId());
-        } catch (PayPrizeException payEx) {
-            String error = "Sorry, we couldn't send your prize, try later or contact with our support " +
-                    "(for last spin we didn't take pay)";
-            Message message = memeClimbBot.execute(bedCommand(chatId, error)).message();
-            saveShownMessage(message.chat().id(), message.messageId());
-        } catch (RuntimeException e) {
-            String error = "Heeee wats this? AAAA waaaaats thiiiis heeee:)";
-            System.out.println(e.getMessage());
-            Message message = memeClimbBot.execute(bedCommand(chatId, error)).message();
-            saveShownMessage(message.chat().id(), message.messageId());
+            sendAnswer(memeMessage);
+        } catch (Throwable ex) {
+            handleException(ex, memeMessage.getChatId());
         }
 
-        deleteProcessingMessage(update, isMessage, chatId, messageTemp);
-        Thread.currentThread().interrupt();
+        deleteMessageBeforeAnswer(processingMessage);
     }
 
-    private Message addProcessingMessage(Update update, boolean isMessage, long chatId) {
-        if (creator.isSpinAction(update, isMessage)) {
-            SendMessage sendMessage = new SendMessage(chatId, "Processing")
+    private MemeMessage sendMessageBeforeAnswer(MemeMessage memeMessage) {
+        if (creator.isSpinAction(memeMessage)) {
+            SendMessage sendMessage = new SendMessage(memeMessage.getChatId(), "Processing")
                     .parseMode(ParseMode.HTML);
             Message messageTemp = memeClimbBot.execute(sendMessage).message();
-            saveShownMessage(messageTemp.chat().id(), messageTemp.messageId());
-            return messageTemp;
+
+            MemeMessage result = new MemeMessage(messageTemp);
+            memeMessages.add(result);
+
+            return result;
         }
 
         return null;
     }
 
-    private void deleteProcessingMessage(Update update, boolean isMessage, long chatId, Message messageTemp) {
-        if (messageTemp != null && creator.isSpinAction(update, isMessage)) {
-            DeleteMessage deleteMessage = new DeleteMessage(chatId, messageTemp.messageId());
-            memeClimbBot.execute(deleteMessage);
-        }
-    }
-
-    private long getChatId(Update update, boolean isMessage) {
-        return isMessage ?
-                update.message().chat().id() :
-                update.callbackQuery().from().id();
-    }
-
-    private void prepareChat(Update update, boolean isMessage, long chatId) {
-        int messageId = getMessageId(update, isMessage);
-
-        saveShownMessage(chatId, messageId);
-        clearChat(chatId);
-    }
-
-    private int getMessageId(Update update, boolean isMessage) {
-        return isMessage ?
-                update.message().messageId() :
-                update.callbackQuery().message().messageId();
-    }
-
-    private void sendAnswer(Update update, boolean isMessage, long chatId) {
-        List<SendMessage> sendMessages = creator.createSendMessages(update, isMessage, chatId, internationalization);
+    private void sendAnswer(MemeMessage memeMessage) {
+        List<SendMessage> sendMessages = creator.createSendMessages(memeMessage, internationalization);
 
         sendMessages.forEach(sendMessage -> {
             Message message = memeClimbBot.execute(sendMessage).message();
-            saveShownMessage(message.chat().id(), message.messageId());
+            memeMessages.add(new MemeMessage(message));
         });
     }
 
-    private void clearChat(long chatId) {
-        chatIdToMessageId.get(chatId).forEach(id -> {
-            DeleteMessage deleteMessage = new DeleteMessage(chatId, id);
+    private void deleteMessageBeforeAnswer(MemeMessage memeMessage) {
+        if (memeMessage != null && creator.isSpinAction(memeMessage)) {
+            DeleteMessage deleteMessage = new DeleteMessage(memeMessage.getChatId(), memeMessage.getMessageId());
             memeClimbBot.execute(deleteMessage);
-        });
-    }
-
-    private void saveShownMessage(long chatId, int messageId) {
-        if (chatIdToMessageId.containsKey(chatId)) {
-            chatIdToMessageId.get(chatId).add(messageId);
-        } else {
-            List<Integer> messageIds = new ArrayList<>(10);
-            messageIds.add(messageId);
-            chatIdToMessageId.put(chatId, messageIds);
         }
     }
 
+    private void handleException(Throwable ex, long chatId) {
+        if (ex.getClass() == ToManyRequestException.class) {
+//            ToManyRequestException exception = (ToManyRequestException) ex;
+//            String error = exception.getMessage();
+//            Message message = memeClimbBot.execute(bedCommand(chatId, error)).message();
+//            memeMessages.add(new MemeMessage(message));
+        } else if (ex.getClass() == EmptyBalanceException.class) {
+            Message message = memeClimbBot.execute(balanceEmpty(chatId)).message();
+            memeMessages.add(new MemeMessage(message));
+        } else if (ex.getClass() == PayPrizeException.class) {
+            String error = "Sorry, we couldn't send your prize, try later or contact with our support " +
+                    "(for last spin we didn't take pay)";
+            Message message = memeClimbBot.execute(bedCommand(chatId, error)).message();
+            memeMessages.add(new MemeMessage(message));
+        } else if (ex.getClass() == ServerProblemException.class) {
+            String error = "Sorry, some problem with server, please try again";
+            Message message = memeClimbBot.execute(bedCommand(chatId, error)).message();
+            memeMessages.add(new MemeMessage(message));
+        } else if (ex.getClass() == NotExpectedException.class) {
+            String error = "Heeee wats this? AAAA waaaaats thiiiis heeee:)";
+            Message message = memeClimbBot.execute(bedCommand(chatId, error)).message();
+            memeMessages.add(new MemeMessage(message));
+        }
+    }
 
-    public SendMessage balanceEmpty(EmptyBalanceException emptyBalanceException) {
-        return new SendMessage(emptyBalanceException.getChatId(), "Sorry your balance so small)")
+    public SendMessage balanceEmpty(long chatId) {
+        return new SendMessage(chatId, "Sorry your balance so small)")
                 .parseMode(ParseMode.HTML)
                 .replyMarkup(PROBLEM_WITH_BALANCE.get(internationalization));
     }

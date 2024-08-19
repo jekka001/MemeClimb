@@ -1,6 +1,6 @@
 package ua.corporation.memeclimb.exception;
 
-public class PayPrizeException extends RuntimeException{
+public class PayPrizeException extends RuntimeException {
 
     public PayPrizeException(String message) {
         super(message);

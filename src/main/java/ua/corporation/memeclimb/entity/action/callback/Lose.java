@@ -33,7 +33,7 @@ public class Lose extends Action implements Callback {
 
     @Override
     public List<SendMessage> generate(long chatId, UserDto user) {
-        saveSpinResult(user, 0, SPIN_STATE, chatId);
+        saveSpinResult(user, 0, SPIN_STATE);
         this.user = user;
         this.pool = poolService.getPool(user.getChosenPoolId());
 

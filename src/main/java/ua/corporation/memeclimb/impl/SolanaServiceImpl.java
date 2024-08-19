@@ -1,18 +1,16 @@
 package ua.corporation.memeclimb.impl;
 
-import lombok.RequiredArgsConstructor;
-import org.p2p.solanaj.core.Account;
 import org.p2p.solanaj.rpc.RpcClient;
-import org.p2p.solanaj.rpc.RpcException;
 import org.sol4k.Connection;
 import org.sol4k.PublicKey;
+import org.sol4k.api.AccountInfo;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.corporation.memeclimb.entity.main.PaymentInformation;
 import ua.corporation.memeclimb.entity.main.UserSplAddress;
 import ua.corporation.memeclimb.entity.main.dto.CoinDto;
 import ua.corporation.memeclimb.entity.main.dto.UserDto;
-import ua.corporation.memeclimb.entity.main.response.helpEntity.Fee;
 import ua.corporation.memeclimb.impl.payment.CreateSPLTokenAddressForUser;
 import ua.corporation.memeclimb.impl.payment.PayForUserSpin;
 import ua.corporation.memeclimb.impl.payment.SendPrizeToUser;
@@ -20,161 +18,143 @@ import ua.corporation.memeclimb.impl.payment.WithdrawUserCoins;
 import ua.corporation.memeclimb.mapper.TransactionMapper;
 import ua.corporation.memeclimb.service.*;
 
-import java.util.*;
+import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
 @Service
-@RequiredArgsConstructor
 public class SolanaServiceImpl implements SolanaService {
+    private final int feeInSolana;
+    private final RpcClient solanajClient;
+    private final Connection sol4kConnection;
     private final JupiterService jupiterService;
-    private final RpcClient solanajClient = new RpcClient("https://mainnet.helius-rpc.com/?api-key=d104bff9-29c0-4494-b356-56a9a0ea4e3e");
-    private final Connection sol4kConnection = new Connection("https://mainnet.helius-rpc.com/?api-key=d104bff9-29c0-4494-b356-56a9a0ea4e3e");
     private final UserSplAddressService splAddressService;
-    private final TransactionMapper transactionMapper;
     private final MoralisService moralisService;
     private final CoinService coinService;
-    private final Random random = new Random();
+    private final TransactionMapper transactionMapper;
 
-
-    private ReentrantLock lock = new ReentrantLock();
-
-    @Override
-    public Map<byte[], String> createKeys(UserDto user) {
-        Map<byte[], String> keys = new HashMap<>(1);
-
-        Account account = createAccount(user);
-        keys.put(account.getSecretKey(), account.getPublicKey().toString());
-
-        return keys;
+    public SolanaServiceImpl(@Value("${helius.rpc.client}") String heliusRPCClient, @Value("${fee.in.solana}") int feeInSolana,
+                             JupiterService jupiterService, UserSplAddressService splAddressService,
+                             MoralisService moralisService, CoinService coinService, TransactionMapper transactionMapper) {
+        this.solanajClient = new RpcClient(heliusRPCClient);
+        this.sol4kConnection = new Connection(heliusRPCClient);
+        this.feeInSolana = feeInSolana;
+        this.jupiterService = jupiterService;
+        this.splAddressService = splAddressService;
+        this.moralisService = moralisService;
+        this.coinService = coinService;
+        this.transactionMapper = transactionMapper;
     }
 
     @Override
-    public long getFee() {
-        try {
-            return getFees("JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4").getPriorityFeeEstimate().longValue();
-        } catch (RpcException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    public long getFee(int unitLimit, int unitPrice, CoinDto mainCoin) {
+        int unitToLamport = 1000;
 
-    public Fee getFees(String publicKey) throws RpcException {
-        List<Object> params = new ArrayList();
-        if (null != publicKey) {
-            params.add(Map.of("accountKeys", List.of(publicKey)));
-            params.add(Map.of("options", List.of("recommended", true)));
-        }
-
-        return this.solanajClient.call("getPriorityFeeEstimate", params, Fee.class);
-    }
-
-    private Account createAccount(UserDto user) {
-        List<String> words = new ArrayList<>();
-
-        words.add(user.getName());
-        words.add(user.getTelegramId());
-        words.add(generateRandomPhrase());
-
-        return Account.fromBip44Mnemonic(words, generateRandomPhrase());
-    }
-
-    private String generateRandomPhrase() {
-        StringBuilder stringBuilder = new StringBuilder();
-        String phrase = "memeClimb";
-
-        for (int counter = 0; counter < phrase.length(); counter++) {
-            int randomNumber = random.nextInt(phrase.length());
-            stringBuilder.append(phrase.charAt(randomNumber));
-        }
-
-        return stringBuilder.toString();
+        return ((long) unitLimit * unitPrice * unitToLamport) / mainCoin.getDecimalMultiplayer() + feeInSolana;
     }
 
     @Override
     @Transactional
-    public void getPayFromUser(UserDto user, CoinDto coin, UserDto server) {
-        PaymentInformation paymentInformation =
-                PaymentInformation.getInstancePayForSpin(user, coin, server, 1400000, 100000, user);
+    public void getPayFromUser(PaymentInformation paymentInformation) {
+        ReentrantLock lock = new ReentrantLock();
 
-        PayForUserSpin makeTransactionRunnable =
+        PayForUserSpin payForUserSpin =
                 new PayForUserSpin(sol4kConnection, solanajClient, paymentInformation, lock, transactionMapper);
 
-        makeTransactionRunnable.run(3);
+        payForUserSpin.run(3);
     }
 
     @Override
     @Transactional
-    public void sendPrize(UserDto user, CoinDto coin, UserDto server, double usdPrize) {
-        if (!coin.getSymbol().equals("USDT")) {
-            PaymentInformation paymentInformation =
-                    PaymentInformation.getInstanceSendPrize(server, coin, user, usdPrize, 1400000, 100000, user);
-            String associatedAddress = getAssociatedAddress(paymentInformation);
+    public void sendPrize(PaymentInformation paymentInformation) {
+        ReentrantLock lock = new ReentrantLock();
 
-            SendPrizeToUser sendPrizeToUser = new SendPrizeToUser(sol4kConnection, solanajClient, jupiterService,
-                    transactionMapper, paymentInformation, lock, associatedAddress);
-
-            sendPrizeToUser.run();
+        if (!paymentInformation.getCoin().getSymbol().equals("USDT")) {
+            sendPrizeTransactionForAllToken(paymentInformation, lock);
         } else {
-            coin.setAmountRaw(Double.valueOf(usdPrize).longValue());
-            PaymentInformation paymentInformation =
-                    PaymentInformation.getInstanceWithdraw(server, coin, user.getPublicKey(), 1000000, 100000, user);
-
-            String associatedAddressForWallet = getAssociatedAddressForWallet(paymentInformation);
-
-            WithdrawUserCoins withdrawUserCoins = new WithdrawUserCoins(sol4kConnection, solanajClient, lock,
-                    transactionMapper, paymentInformation, splAddressService, associatedAddressForWallet);
-
-            withdrawUserCoins.run(3);
+            sendPrizeTransactionForUSDT(paymentInformation, lock);
         }
     }
 
-    private String getAssociatedAddress(PaymentInformation paymentInformation) {
+    private void sendPrizeTransactionForAllToken(PaymentInformation paymentInformation, ReentrantLock lock) {
+        String associatedAddress = getAssociatedAddress(paymentInformation, lock);
+
+        SendPrizeToUser sendPrizeToUser = new SendPrizeToUser(sol4kConnection, solanajClient, jupiterService,
+                transactionMapper, paymentInformation, lock, associatedAddress);
+        sendPrizeToUser.run();
+    }
+
+    private String getAssociatedAddress(PaymentInformation paymentInformation, ReentrantLock lock) {
         UserSplAddress userSplAddress =
                 splAddressService.getSplAddress(paymentInformation.getUser(), paymentInformation.getCoin());
 
-        if (userSplAddress == null) {
-            CreateSPLTokenAddressForUser createUserSplTokenAddress =
-                    new CreateSPLTokenAddressForUser(sol4kConnection, solanajClient,
-                            transactionMapper, paymentInformation, lock);
-            String associatedAddress = createUserSplTokenAddress.run();
-            splAddressService.saveSplAddress(paymentInformation.getUser(), paymentInformation.getCoin(), associatedAddress);
+        return userSplAddress != null ?
+                userSplAddress.getAssociatedTokenAddress() :
+                createAndSaveSplAddress(paymentInformation, lock);
+    }
 
-            return associatedAddress;
-        }
+    private String createAndSaveSplAddress(PaymentInformation paymentInformation, ReentrantLock lock) {
+        String associatedAddress = getAssociatedAddressForWallet(paymentInformation, lock);
+        splAddressService.saveSplAddress(paymentInformation.getUser(), paymentInformation.getCoin(), associatedAddress);
 
-        return userSplAddress.getAssociatedTokenAddress();
+        return associatedAddress;
+    }
+
+    private void sendPrizeTransactionForUSDT(PaymentInformation paymentInformation, ReentrantLock lock) {
+        paymentInformation.getCoin().setAmountRaw(Double.valueOf(paymentInformation.getUsdPrize()).longValue());
+
+        String associatedAddressForWallet = getAssociatedAddressForWallet(paymentInformation, lock);
+
+        WithdrawUserCoins sendUSDTPrize = new WithdrawUserCoins(sol4kConnection, solanajClient, lock,
+                transactionMapper, paymentInformation, splAddressService, associatedAddressForWallet);
+
+        sendUSDTPrize.run(3);
     }
 
     @Override
     public long getAccountBalance(UserDto userDto) {
-        return sol4kConnection.getAccountInfo(new PublicKey(userDto.getPublicKey())).getLamports().longValue();
+        AccountInfo accountInfo = sol4kConnection.getAccountInfo(new PublicKey(userDto.getPublicKey()));
+
+        if (accountInfo != null) {
+            return accountInfo.getLamports().longValue();
+        }
+
+        return 0;
     }
 
     @Override
-    public void withdraw(UserDto user, String userWallet) {
-        List<CoinDto> coins = moralisService.getSPLToken(user);
+    public void withdraw(PaymentInformation paymentInformation) {
+        ReentrantLock lock = new ReentrantLock();
+
+        sendAllSPLTokenTransactions(paymentInformation, lock);
+        sendMainTokenTransaction(paymentInformation, lock);
+    }
+
+    private void sendAllSPLTokenTransactions(PaymentInformation paymentInformation, ReentrantLock lock) {
+        List<CoinDto> coins = moralisService.getSPLToken(paymentInformation.getUser());
         for (CoinDto splToken : coins) {
-            CoinDto coinInDB = coinService.getBySymbol(splToken.getSymbol());
-            coinInDB.setAmountRaw(splToken.getAmountRaw());
-
-            PaymentInformation paymentInformation =
-                    PaymentInformation.getInstanceWithdraw(user, coinInDB, userWallet, 1000000, 100000, user);
-
-            String associatedAddressForWallet = getAssociatedAddressForWallet(paymentInformation);
-
-            WithdrawUserCoins withdrawUserCoins = new WithdrawUserCoins(sol4kConnection, solanajClient, lock,
-                    transactionMapper, paymentInformation, splAddressService, associatedAddressForWallet);
-
-            withdrawUserCoins.run(3);
+            sendSplTokenTransaction(paymentInformation, lock, splToken);
         }
-        CoinDto coinDto = coinService.getMainCoin();
-        long lamport = getAccountBalance(user);
-        coinDto.setAmountRaw((lamport - (1400000 * 100000L) * 10000 / coinDto.getDecimalMultiplayer()));
-        UserDto realUserWallet = new UserDto("userWallet", "userWallet");
-        realUserWallet.setId(UUID.randomUUID());
-        realUserWallet.setPublicKey(userWallet);
+    }
 
-        PaymentInformation paymentInformation =
-                PaymentInformation.getInstancePayForSpin(user, coinDto, realUserWallet, 1400000, 100000, user);
+    private void sendSplTokenTransaction(PaymentInformation paymentInformation, ReentrantLock lock, CoinDto splToken) {
+        setCoinAmountRaw(paymentInformation, splToken);
+        String associatedAddressForWallet = getAssociatedAddressForWallet(paymentInformation, lock);
+
+        WithdrawUserCoins withdrawUserCoins = new WithdrawUserCoins(sol4kConnection, solanajClient, lock,
+                transactionMapper, paymentInformation, splAddressService, associatedAddressForWallet);
+
+        withdrawUserCoins.run(3);
+    }
+
+    private void setCoinAmountRaw(PaymentInformation paymentInformation, CoinDto splToken) {
+        CoinDto coinInDB = coinService.getBySymbol(splToken.getSymbol());
+        coinInDB.setAmountRaw(splToken.getAmountRaw());
+
+        paymentInformation.setCoin(coinInDB);
+    }
+
+    private void sendMainTokenTransaction(PaymentInformation paymentInformation, ReentrantLock lock) {
+        setCoinAmountRaw(paymentInformation);
 
         PayForUserSpin makeTransactionRunnable =
                 new PayForUserSpin(sol4kConnection, solanajClient, paymentInformation, lock, transactionMapper);
@@ -182,11 +162,39 @@ public class SolanaServiceImpl implements SolanaService {
         makeTransactionRunnable.run(3);
     }
 
-    private String getAssociatedAddressForWallet(PaymentInformation paymentInformation) {
+    private void setCoinAmountRaw(PaymentInformation paymentInformation) {
+        CoinDto mainCoin = coinService.getMainCoin();
+        long lamport = getAccountBalance(paymentInformation.getUser());
+        mainCoin.setAmountRaw((lamport - getFee(paymentInformation.getUnitLimit(), paymentInformation.getUnitPrice(), mainCoin)));
+
+        paymentInformation.setCoin(mainCoin);
+    }
+
+    private String getAssociatedAddressForWallet(PaymentInformation paymentInformation, ReentrantLock lock) {
         CreateSPLTokenAddressForUser createUserSplTokenAddress =
                 new CreateSPLTokenAddressForUser(sol4kConnection, solanajClient,
                         transactionMapper, paymentInformation, lock);
 
         return createUserSplTokenAddress.run();
     }
+
+//    @Override
+//    public long getFeeForUserSendPrize() {
+//        try {
+//            return getFees("JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4").getPriorityFeeEstimate().longValue();
+//        } catch (RpcException e) {
+//            throw new ServerProblemException(e);
+//        }
+//    }
+
+    //    private Fee getFees(String publicKey) throws RpcException {
+//        List<Object> params = new ArrayList();
+//        if (null != publicKey) {
+//            params.add(Map.of("accountKeys", List.of(publicKey)));
+//            params.add(Map.of("options", List.of("recommended", true)));
+//        }
+//
+//        return this.solanajClient.call("getPriorityFeeEstimate", params, Fee.class);
+//    }
+
 }

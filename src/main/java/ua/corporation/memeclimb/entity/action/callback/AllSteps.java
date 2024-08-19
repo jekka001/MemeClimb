@@ -7,7 +7,6 @@ import com.pengrad.telegrambot.request.SendMessage;
 import ua.corporation.memeclimb.entity.action.Action;
 import ua.corporation.memeclimb.entity.main.SpinState;
 import ua.corporation.memeclimb.entity.main.dto.CoinDto;
-import ua.corporation.memeclimb.entity.main.dto.ParticipantDto;
 import ua.corporation.memeclimb.entity.main.dto.PoolDto;
 import ua.corporation.memeclimb.entity.main.dto.UserDto;
 import ua.corporation.memeclimb.lang.Internationalization;
@@ -22,7 +21,7 @@ import static ua.corporation.memeclimb.config.ReplayText.POOL_NAME;
 import static ua.corporation.memeclimb.config.ReplayText.TOP_REWARD;
 
 public class AllSteps extends Action implements Callback {
-    public static final SpinState SPIN_STATE = SpinState.ALL_STEP;
+    public static final SpinState SPIN_STATE = SpinState.ALL_STEPS;
     public static final String KEY = "allSteps";
     private UserDto user;
     private PoolDto pool;
@@ -36,7 +35,7 @@ public class AllSteps extends Action implements Callback {
     public List<SendMessage> generate(long chatId, UserDto user) {
         this.user = user;
         this.pool = poolService.getPool(user.getChosenPoolId());
-        coinDto = saveSpinResult(user, 0, SPIN_STATE, chatId);
+        coinDto = saveSpinResult(user, 0, SPIN_STATE);
 
         String text = prepareText();
 

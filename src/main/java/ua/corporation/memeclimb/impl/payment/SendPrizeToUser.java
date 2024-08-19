@@ -89,10 +89,10 @@ public class SendPrizeToUser extends BasePayment implements PaymentOperation {
                 } catch (org.p2p.solanaj.rpc.RpcException ex) {
                     throw new RuntimeException(ex);
                 }
+            }else{
+                logger.error("Server problem with pay user - " + paymentInformation.getUserId() + " coin - " + paymentInformation.getSymbol() + " amount - " + paymentInformation.getAmount() + " error -" + e);
+                throw new PayPrizeException(e);
             }
-
-            logger.error("Server problem with pay user - " + paymentInformation.getUserId() + " coin - " + paymentInformation.getSymbol() + " amount - " + paymentInformation.getAmount() + " error -" + e);
-            throw new PayPrizeException(e);
         }
     }
 

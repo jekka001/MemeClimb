@@ -44,7 +44,7 @@ public class PayForUserSpin extends BasePayment implements PaymentOperation {
             logger.info("user - " + paymentInformation.getUserId() + " finished pay " + paymentInformation.getSymbol() + " amount = " + paymentInformation.getAmount() + " for spin");
         } catch (Throwable exception) {
             lock.unlock();
-            logger.error("user - " + paymentInformation.getUserId() + " can't pay " + paymentInformation.getSymbol() + " amount = " + paymentInformation.getAmount() + " for spin");
+            logger.error("user - " + paymentInformation.getUserId() + " can't pay " + paymentInformation.getSymbol() + " amount = " + paymentInformation.getAmount() + " for spin " + exception.getMessage());
             throw new PayForSpinException(exception);
         }
     }

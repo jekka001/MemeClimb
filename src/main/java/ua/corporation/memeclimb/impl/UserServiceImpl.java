@@ -1,29 +1,27 @@
 package ua.corporation.memeclimb.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.p2p.solanaj.core.Account;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import ua.corporation.memeclimb.entity.main.User;
 import ua.corporation.memeclimb.entity.main.dto.UserDto;
 import ua.corporation.memeclimb.mapper.UserMapper;
 import ua.corporation.memeclimb.repository.UserRepository;
-import ua.corporation.memeclimb.service.SolanaService;
 import ua.corporation.memeclimb.service.UserService;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-    private final UserRepository repository;
-    private final UserMapper mapper;
-    private final SolanaService solanaService;
-
+    private static final Random random = new Random();
+    @Value("${meme.climb}")
+    private String phrase;
     @Value("${server.name}")
     private String serverName;
+    private final UserRepository repository;
+    private final UserMapper mapper;
 
     @Override
     public UserDto getServerWallet() {
@@ -37,7 +35,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private UserDto createServer(UserDto user) {
-        Map<byte[], String> keys = solanaService.createKeys(user);
+        Map<byte[], String> keys = createKeys(user);
 
         user.setPublicKey(getPublicKey(keys));
         user.setPrivateKey(getPrivateKey(keys));
@@ -48,12 +46,42 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto create(com.pengrad.telegrambot.model.User telegramUser) {
         UserDto user = new UserDto(telegramUser.username(), String.valueOf(telegramUser.id()));
-        Map<byte[], String> keys = solanaService.createKeys(user);
+        Map<byte[], String> keys = createKeys(user);
 
         user.setPublicKey(getPublicKey(keys));
         user.setPrivateKey(getPrivateKey(keys));
 
         return save(user);
+    }
+
+    private Map<byte[], String> createKeys(UserDto user) {
+        Account account = createAccount(user);
+
+        return Collections.singletonMap(
+                account.getSecretKey(),
+                account.getPublicKey().toString()
+        );
+    }
+
+    private Account createAccount(UserDto user) {
+        List<String> words = Arrays.asList(
+                user.getName(),
+                user.getTelegramId(),
+                generateRandomPhrase()
+        );
+
+        return Account.fromBip44Mnemonic(words, generateRandomPhrase());
+    }
+
+    private String generateRandomPhrase() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int counter = 0; counter < phrase.length(); counter++) {
+            int randomNumber = random.nextInt(phrase.length());
+            stringBuilder.append(phrase.charAt(randomNumber));
+        }
+
+        return stringBuilder.toString();
     }
 
     private String getPublicKey(Map<byte[], String> keys) {

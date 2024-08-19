@@ -1,18 +1,12 @@
 package ua.corporation.memeclimb.exception;
 
-import lombok.Getter;
-
-@Getter
 public class EmptyBalanceException extends RuntimeException {
-
-    private long chatId;
 
     public EmptyBalanceException() {
     }
 
-    public EmptyBalanceException(String message, long chatId) {
+    public EmptyBalanceException(String message) {
         super(message);
-        this.chatId = chatId;
     }
 
     public EmptyBalanceException(String message, Throwable cause) {

@@ -49,9 +49,9 @@ public class PaymentInformation {
         return paymentInformation;
     }
 
-    public static PaymentInformation getInstanceWithdraw(UserDto payer, CoinDto token, String withdrawWallet, int unitLimit,
+    public static PaymentInformation getInstanceWithdraw(UserDto payer, String withdrawWallet, int unitLimit,
                                                          int unitPrice, UserDto user) {
-        PaymentInformation paymentInformation = new PaymentInformation(
+        return new PaymentInformation(
                 payer.getPublicKey(),
                 payer.getPrivateKey(),
                 withdrawWallet,
@@ -59,9 +59,6 @@ public class PaymentInformation {
                 unitPrice,
                 user
         );
-        paymentInformation.setCoin(token);
-
-        return paymentInformation;
     }
 
     private PaymentInformation(String payerPublicKey, byte[] payerPrivateKey, String receiverPublicKey,

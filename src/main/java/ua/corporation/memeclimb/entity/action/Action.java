@@ -50,24 +50,24 @@ public abstract class Action {
 
     protected abstract SendMessage createSendMessage(Long chatId, String text);
 
-    protected CoinDto saveSpinResult(UserDto user, double prize, SpinState spinState, long chatId) {
+    protected CoinDto saveSpinResult(UserDto user, double prize, SpinState spinState) {
         double fee = getFee(user).doubleValue();
 
-        if (balanceService.checkBalance(user, fee, chatId)) {
-            if (spinState.equals(SpinState.ALL_STEP)) {
+        if (balanceService.checkBalance(user, fee)) {
+            if (spinState.equals(SpinState.ALL_STEPS)) {
                 prize = calculatePrize(user, fee);
             }
             CoinDto coinDto = calculateBalance(user, prize, spinState, fee);
             calculateStep(user);
             saveSpentMoney(user, fee);
-            if (spinState.equals(SpinState.ALL_STEP)) {
+            if (spinState.equals(SpinState.ALL_STEPS)) {
                 clearSpentMoney(user);
             } else if (spinState.equals(SpinState.WIN)) {
                 clearSpentMoney(user);
             }
             return coinDto;
         } else {
-            throw new EmptyBalanceException("Balance empty", chatId);
+            throw new EmptyBalanceException("Balance empty");
         }
     }
 
@@ -100,9 +100,8 @@ public abstract class Action {
     @Transactional
     public CoinDto calculateBalance(UserDto user, double addPrize, SpinState spinState, double fee) {
         if (addPrize != 0) {
-            CoinDto coinDto = balanceService.addPrize(user, addPrize, spinState);
             balanceService.subtractFee(user, fee);
-            return coinDto;
+            return balanceService.addPrize(user, addPrize, spinState);
         }
 
         balanceService.subtractFee(user, fee);

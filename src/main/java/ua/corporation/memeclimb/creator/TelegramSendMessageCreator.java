@@ -1,6 +1,5 @@
 package ua.corporation.memeclimb.creator;
 
-import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -9,6 +8,7 @@ import ua.corporation.memeclimb.entity.action.callback.*;
 import ua.corporation.memeclimb.entity.action.message.Authority;
 import ua.corporation.memeclimb.entity.action.message.Start;
 import ua.corporation.memeclimb.entity.action.message.WithdrawSend;
+import ua.corporation.memeclimb.entity.main.MemeMessage;
 import ua.corporation.memeclimb.entity.main.dto.UserDto;
 import ua.corporation.memeclimb.lang.Internationalization;
 import ua.corporation.memeclimb.service.BalanceService;
@@ -28,39 +28,24 @@ public class TelegramSendMessageCreator implements TelegramCreator {
     private Internationalization internationalization;
 
     @Override
-    public List<SendMessage> createSendMessages(Update update, boolean isMessage, long chatId, Internationalization internationalization) {
+    public List<SendMessage> createSendMessages(MemeMessage memeMessage, Internationalization internationalization) {
         this.internationalization = internationalization;
-        String data = getData(update, isMessage);
-        UserDto user = getUser(update, isMessage);
+        UserDto user = userService.get(memeMessage.getTelegramUser());
+        Action action = createAction(memeMessage.getData());
 
-        Action action = createAction(data);
-
-        return action.generate(chatId, user);
+        return action.generate(memeMessage.getChatId(), user);
     }
 
-    public boolean isSpinAction(Update update, boolean isMessage) {
-        String data = getData(update, isMessage);
+    @Override
+    public boolean isSpinAction(MemeMessage memeMessage) {
+        String data = memeMessage.getData();
+
         List<String> spinAction = new ArrayList<>();
         spinAction.add(Lose.KEY);
         spinAction.add(Win.KEY);
         spinAction.add(AllSteps.KEY);
 
         return spinAction.contains(data);
-    }
-
-    private String getData(Update update, boolean isMessage) {
-        return isMessage ?
-                update.message().text() :
-                update.callbackQuery().data();
-    }
-
-    private UserDto getUser(Update update, boolean isMessage) {
-        com.pengrad.telegrambot.model.User telegramUser =
-                isMessage ?
-                        update.message().from() :
-                        update.callbackQuery().from();
-
-        return userService.get(telegramUser);
     }
 
     private Action createAction(String actionKey) {

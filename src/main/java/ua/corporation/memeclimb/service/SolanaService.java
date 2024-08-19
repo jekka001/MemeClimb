@@ -1,20 +1,19 @@
 package ua.corporation.memeclimb.service;
 
+import ua.corporation.memeclimb.entity.main.PaymentInformation;
 import ua.corporation.memeclimb.entity.main.dto.CoinDto;
 import ua.corporation.memeclimb.entity.main.dto.UserDto;
 
 import java.util.Map;
 
 public interface SolanaService {
-    Map<byte[], String> createKeys(UserDto userDto);
+    long getFee(int unitLimit, int unitPrice, CoinDto mainCoin);
 
-    long getFee();
+    void getPayFromUser(PaymentInformation paymentInformation);
 
-    void getPayFromUser(UserDto user, CoinDto coinDto, UserDto server);
-
-    void sendPrize(UserDto user, CoinDto coinDto, UserDto server, double usdPrize);
+    void sendPrize(PaymentInformation paymentInformation);
 
     long getAccountBalance(UserDto userDto);
 
-    void withdraw(UserDto user, String publicKey);
+    void withdraw(PaymentInformation paymentInformation);
 }

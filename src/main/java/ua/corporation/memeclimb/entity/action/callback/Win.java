@@ -32,7 +32,7 @@ public class Win extends Action implements Callback {
         this.pool = poolService.getPool(user.getChosenPoolId());
         PoolCoin poolCoin = pool.getTopReward();
 
-        saveSpinResult(user, poolCoin.getUsdPrize(), SPIN_STATE, chatId);
+        saveSpinResult(user, poolCoin.getUsdPrize(), SPIN_STATE);
         poolService.saveWinner(user);
 
         String text = prepareText();

@@ -11,7 +11,7 @@ public interface BalanceService {
 
     void subtractFee(UserDto user, double fee);
 
-    boolean checkBalance(UserDto user, double fee, long chatId);
+    boolean checkBalance(UserDto user, double fee);
 
     void sendMoneyToUser(UserDto user);
 
