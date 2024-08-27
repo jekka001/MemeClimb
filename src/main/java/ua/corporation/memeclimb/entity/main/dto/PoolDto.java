@@ -28,30 +28,6 @@ public class PoolDto extends PoolData implements Comparable<PoolDto> {
     private List<Step> steps;
     private List<PoolCoin> poolCoins;
 
-    public String displayPool(int completedSteps) {
-        String poolReward = generateTextPoolReward();
-        return "<b>" + name + "</b>\n\n" +
-                "<b>\uD83C\uDFC6 Top Prize\uD83C\uDFC6: " + getStringTopReward() + "</b>\n" +
-                "<b>\uD83C\uDFC6✅ Pool Rewards:</b> " + poolReward + " (get one of)\n\n" +
-                "<b>\uD83D\uDC65 Total participants: " + participants.size() + "</b>\n" +
-                "\uD83C\uDFC6\uD83D\uDC64 Number of Winners: " + winners.size() + "\n" +
-                "<b>\uD83D\uDC5FYour Completed Steps: " + completedSteps + "/" + steps.size() + "</b>\n";
-    }
-
-    public String generateTextPoolReward() {
-        List<String> coinsName = poolCoins.stream()
-                .filter(poolCoin -> !poolCoin.isTopReward())
-                .map(poolCoin -> poolCoin.getCoin().getName()).toList();
-        StringBuilder result = new StringBuilder();
-        for (int counter = 0; counter < coinsName.size(); counter++) {
-            result.append(coinsName.get(counter));
-            if (counter != coinsName.size() - 1) {
-                result.append(", ");
-            }
-        }
-        return result.toString();
-    }
-
     public List<PoolCoin> getPoolCoins() {
         return poolCoins.stream().filter(poolCoin -> !poolCoin.isTopReward()).collect(Collectors.toList());
     }

@@ -6,13 +6,16 @@ public enum ReplayText {
     POOL("<pool>"),
     STEP("<step>"),
     COUNT_OF_STEP("<countOfStep>"),
+    COMPLETED_STEPS("<completedSteps>"),
     INITIAL_FEE("<initialFee>"),
     TOP_REWARD("<topReward>"),
     NUMBER_STEPS("<numberSteps>"),
     POOL_NAME("<poolName>"),
     POOL_REWARD("<poolReward>"),
     TIME("<time>"),
-    SPIN_FEE("<spinFee>");
+    SPIN_FEE("<spinFee>"),
+    PARTICIPANT("<participant>"),
+    WINNER("<winner>");
 
     private final String key;
 

@@ -47,7 +47,7 @@ public class CreateSPLTokenAddressForUser extends BasePayment implements Payment
             return userSplTokenAddress.toString();
         } catch (Throwable e) {
             lock.unlock();
-            logger.error("Server can't pay to user " + paymentInformation.getUserId() + " coin - " + paymentInformation.getSymbol() + " amount = " + paymentInformation.getAmount() + " as prize");
+            logger.error("Server can't pay to user " + paymentInformation.getUserId() + " coin - " + paymentInformation.getSymbol() + " amount = " + paymentInformation.getAmount() + " as prize " + e.getMessage());
             throw new PayPrizeException(e);
         }
     }

@@ -192,4 +192,22 @@ public abstract class Action {
     protected void withdraw(UserDto userDto, String withdrawWallet) {
         balanceService.withdraw(userDto, withdrawWallet);
     }
+
+
+    public String generateTextPoolReward(PoolDto pool) {
+        List<String> coinsSymbol = pool.getPoolCoins().stream()
+                .filter(poolCoin -> !poolCoin.isTopReward())
+                .map(poolCoin -> poolCoin.getCoin().getSymbol()).toList();
+
+        StringBuilder result = new StringBuilder();
+
+        for (int counter = 0; counter < coinsSymbol.size(); counter++) {
+            result.append(coinsSymbol.get(counter));
+            if (counter != coinsSymbol.size() - 1) {
+                result.append(", ");
+            }
+        }
+
+        return result.toString();
+    }
 }

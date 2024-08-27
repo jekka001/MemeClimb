@@ -53,7 +53,7 @@ public class Lose extends Action implements Callback {
         text = text.replace(POOL_NAME.getKey(), pool.getName());
         text = text.replace(TOP_REWARD.getKey(), pool.getStringTopReward());
         text = text.replace(TIME.getKey(), String.valueOf(48));
-        text = text.replace(POOL_REWARD.getKey(), pool.generateTextPoolReward());
+        text = text.replace(POOL_REWARD.getKey(), generateTextPoolReward(pool));
 
         return text;
     }

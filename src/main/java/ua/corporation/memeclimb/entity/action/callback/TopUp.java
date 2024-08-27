@@ -34,8 +34,11 @@ public class TopUp extends Action implements Callback {
     private String prepareText(UserDto user, Internationalization internationalization) {
         String text = internationalization.getLocalizationMessage(KEY);
 
-        return text.substring(0, text.indexOf(CLIENT_PUBLIC_KEY.getKey())) +
-                "<b><code>" + user.getPublicKey() + "</code></b>" + "<b>(Tap to copy)</b>";
+        String userPublicKeyString = "<b><code>" + user.getPublicKey() + "</code></b>";
+
+        text = text.replace(CLIENT_PUBLIC_KEY.getKey(), userPublicKeyString);
+
+        return text;
     }
 
     @Override

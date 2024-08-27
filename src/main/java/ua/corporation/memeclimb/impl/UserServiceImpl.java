@@ -45,7 +45,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto create(com.pengrad.telegrambot.model.User telegramUser) {
-        UserDto user = new UserDto(telegramUser.username(), String.valueOf(telegramUser.id()));
+        String name = telegramUser.username() != null ? telegramUser.username() : telegramUser.firstName();
+        UserDto user = new UserDto(name, String.valueOf(telegramUser.id()));
         Map<byte[], String> keys = createKeys(user);
 
         user.setPublicKey(getPublicKey(keys));

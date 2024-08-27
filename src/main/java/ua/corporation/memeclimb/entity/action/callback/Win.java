@@ -43,7 +43,7 @@ public class Win extends Action implements Callback {
     @NotNull
     private String prepareText() {
         String topReward = pool.getStringTopReward();
-        String poolReward = pool.generateTextPoolReward();
+        String poolReward = generateTextPoolReward(pool);
         String text = internationalization.getLocalizationMessage(KEY);
 
         text = text.replace(TOP_REWARD.getKey(), topReward);

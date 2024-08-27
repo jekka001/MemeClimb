@@ -19,6 +19,7 @@ import java.util.List;
 import static ua.corporation.memeclimb.config.Button.BACK;
 import static ua.corporation.memeclimb.config.Button.TOP_UP;
 import static ua.corporation.memeclimb.config.ReplayText.*;
+import static ua.corporation.memeclimb.entity.action.callback.Pools.POOL_INFO;
 
 public class ChoosePool extends Action implements Callback {
     public static final String KEY = "choosePool";
@@ -53,11 +54,25 @@ public class ChoosePool extends Action implements Callback {
         String stepInfo = getStepInfo(completedStep, pool);
 
         return text
-                .replace(POOL.getKey(), pool.displayPool(completedStep))
+                .replace(POOL.getKey(), displayPool(pool, completedStep))
                 .replace(STEP.getKey(), stepInfo)
                 .replace(COUNT_OF_STEP.getKey(), String.valueOf(pool.getSteps().size()))
                 .replace(INITIAL_FEE.getKey(), String.valueOf(pool.getInitialFee()))
                 .replace(TOP_REWARD.getKey(), pool.getStringTopReward());
+    }
+
+    public String displayPool(PoolDto poolDto, int countCompletedSteps) {
+        String text = internationalization.getLocalizationMessage(POOL_INFO);
+
+        text = text.replace(POOL_NAME.getKey(), poolDto.getName());
+        text = text.replace(TOP_REWARD.getKey(), poolDto.getStringTopReward());
+        text = text.replace(POOL_REWARD.getKey(), generateTextPoolReward(poolDto));
+        text = text.replace(PARTICIPANT.getKey(), String.valueOf(poolDto.getParticipants().size()));
+        text = text.replace(WINNER.getKey(), String.valueOf(poolDto.getWinners().size()));
+        text = text.replace(COMPLETED_STEPS.getKey(), String.valueOf(countCompletedSteps));
+        text = text.replace(COUNT_OF_STEP.getKey(), String.valueOf(poolDto.getSteps().size()));
+
+        return text;
     }
 
     private String getStepInfo(int completedStep, PoolDto chosenPool) {

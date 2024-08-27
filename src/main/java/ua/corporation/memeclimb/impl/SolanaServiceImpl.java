@@ -165,7 +165,7 @@ public class SolanaServiceImpl implements SolanaService {
     private void setCoinAmountRaw(PaymentInformation paymentInformation) {
         CoinDto mainCoin = coinService.getMainCoin();
         long lamport = getAccountBalance(paymentInformation.getUser());
-        mainCoin.setAmountRaw((lamport - getFee(paymentInformation.getUnitLimit(), paymentInformation.getUnitPrice(), mainCoin)));
+        mainCoin.setAmountRaw((lamport - (getFee(paymentInformation.getUnitLimit(), paymentInformation.getUnitPrice(), mainCoin) + 990880)));
 
         paymentInformation.setCoin(mainCoin);
     }

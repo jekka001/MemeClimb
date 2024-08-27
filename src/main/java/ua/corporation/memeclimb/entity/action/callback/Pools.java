@@ -18,11 +18,13 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import static ua.corporation.memeclimb.config.Button.*;
-import static ua.corporation.memeclimb.lang.ButtonText.REVEAL_POOL;
+import static ua.corporation.memeclimb.config.ReplayText.*;
+import static ua.corporation.memeclimb.lang.ButtonText.ENTER_POOL;
 
 public class Pools extends Action implements CallbackWithChoose {
     public static final String KEY = "pool";
     public static final String SECOND_KEY = "morePools";
+    public static final String POOL_INFO = "poolInfo";
     private final int page;
     private UserDto user;
 
@@ -66,7 +68,21 @@ public class Pools extends Action implements CallbackWithChoose {
 
         ParticipantDto foundParticipant = poolService.getParticipant(pools.get(counter), user);
 
-        return text.replace("<" + counter + ">", pools.get(counter).displayPool(foundParticipant.getUserStep()));
+        return text.replace("<" + counter + ">", displayPool(pools.get(counter), foundParticipant.getUserStep()));
+    }
+
+    public String displayPool(PoolDto poolDto, int countCompletedSteps) {
+        String text = internationalization.getLocalizationMessage(POOL_INFO);
+
+        text = text.replace(POOL_NAME.getKey(), poolDto.getName());
+        text = text.replace(TOP_REWARD.getKey(), poolDto.getStringTopReward());
+        text = text.replace(POOL_REWARD.getKey(), generateTextPoolReward(poolDto));
+        text = text.replace(PARTICIPANT.getKey(), String.valueOf(poolDto.getParticipants().size()));
+        text = text.replace(WINNER.getKey(), String.valueOf(poolDto.getWinners().size()));
+        text = text.replace(COMPLETED_STEPS.getKey(), String.valueOf(countCompletedSteps));
+        text = text.replace(COUNT_OF_STEP.getKey(), String.valueOf(poolDto.getSteps().size()));
+
+        return text;
     }
 
     @Override
@@ -78,7 +94,7 @@ public class Pools extends Action implements CallbackWithChoose {
     }
 
     private InlineKeyboardMarkup prepareMarkup(PoolDto pool, boolean lastPool) {
-        String revealPool = REVEAL_POOL.getKey(internationalization);
+        String revealPool = ENTER_POOL.getKey(internationalization);
         InlineKeyboardButton revealPoolButton = new InlineKeyboardButton(revealPool).callbackData(ChoosePool.KEY + pool.getId());
 
         return lastPool ?

@@ -7,7 +7,7 @@ public enum ButtonText {
     HOW_IT_WORKS("howItWorks"),
     WITHDRAW("withdrawButton"),
     SUPPORT("support"),
-    REVEAL_POOL("revealPool"),
+    ENTER_POOL("enterPool"),
     MORE_POOLS("morePools"),
     BACK("back"),
     FIRST_SPIN("firstSpin"),

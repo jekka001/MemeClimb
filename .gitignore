@@ -33,5 +33,5 @@ build/
 .vscode/
 
 
-application-prod.properties
+src/main/resources/application-prod.properties
 docker-compose-prod.yml

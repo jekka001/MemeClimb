@@ -361,3 +361,396 @@
 16:22:06.257 [pool-2-thread-8] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 8hnRmKo32ne7svVWGCP9vtMqMz6Kdcq6GCgt3uDnT75tQACbexu75JT6tz5ixxXVWPUDEhkkkqDobii2TQccqFP for user - 6d678b9e-0b73-453a-8635-e21860920ffc
 16:22:11.562 [pool-2-thread-8] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 8hnRmKo32ne7svVWGCP9vtMqMz6Kdcq6GCgt3uDnT75tQACbexu75JT6tz5ixxXVWPUDEhkkkqDobii2TQccqFP for user - 6d678b9e-0b73-453a-8635-e21860920ffc
 16:22:11.883 [pool-2-thread-8] INFO  u.c.m.impl.payment.PayForUserSpin - user - 6d678b9e-0b73-453a-8635-e21860920ffc finished pay SOL amount = 0.007258 for spin
+15:50:17.765 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 12232 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+15:50:17.828 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+15:50:29.544 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 13.492 seconds (process running for 15.042)
+15:50:43.650 [pool-2-thread-3] INFO  u.c.m.i.p.CreateSPLTokenAddressForUser - Start pay to user 60149041-5867-4046-b6ba-2b1a94b4f4b9 coin - PONKE amount = 7.884418976 as prize
+15:52:24.036 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 8348 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+15:52:24.041 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+15:52:32.662 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 9.267 seconds (process running for 10.174)
+15:52:41.617 [pool-2-thread-3] INFO  u.c.m.i.p.CreateSPLTokenAddressForUser - Start pay to user 60149041-5867-4046-b6ba-2b1a94b4f4b9 coin - PONKE amount = 7.884418976 as prize
+15:54:33.204 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 15876 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+15:54:33.209 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+15:54:42.132 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 9.645 seconds (process running for 10.554)
+15:54:56.452 [pool-2-thread-3] INFO  u.c.m.i.p.CreateSPLTokenAddressForUser - Start pay to user 60149041-5867-4046-b6ba-2b1a94b4f4b9 coin - PONKE amount = 7.884418976 as prize
+15:55:46.326 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 12432 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+15:55:46.330 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+15:55:55.018 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 9.235 seconds (process running for 9.936)
+15:56:03.892 [pool-2-thread-3] INFO  u.c.m.i.p.CreateSPLTokenAddressForUser - Start pay to user 60149041-5867-4046-b6ba-2b1a94b4f4b9 coin - PONKE amount = 7.884418976 as prize
+15:56:11.508 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2VxE4d1fR1MNahKXS4ftztcpYp13qCPragLgBPZcwm83PjY6ufJ6pcn5jomT49pbLCGJD1pf9KXd5zNmKnM3wMub for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:56:13.705 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2VxE4d1fR1MNahKXS4ftztcpYp13qCPragLgBPZcwm83PjY6ufJ6pcn5jomT49pbLCGJD1pf9KXd5zNmKnM3wMub for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:56:17.036 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2VxE4d1fR1MNahKXS4ftztcpYp13qCPragLgBPZcwm83PjY6ufJ6pcn5jomT49pbLCGJD1pf9KXd5zNmKnM3wMub for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:56:21.338 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2VxE4d1fR1MNahKXS4ftztcpYp13qCPragLgBPZcwm83PjY6ufJ6pcn5jomT49pbLCGJD1pf9KXd5zNmKnM3wMub for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:56:21.507 [pool-2-thread-3] INFO  u.c.m.i.p.CreateSPLTokenAddressForUser - Token address for coin - PONKE and for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9 was create
+15:56:21.657 [pool-2-thread-3] INFO  u.c.m.i.p.CreateSPLTokenAddressForUser - Finished pay to user 60149041-5867-4046-b6ba-2b1a94b4f4b9 coin - PONKE amount = 7.884418976 as prize
+15:56:21.658 [pool-2-thread-3] INFO  u.c.m.impl.payment.WithdrawUserCoins - user - 60149041-5867-4046-b6ba-2b1a94b4f4b9 start withdraw 
+15:56:28.910 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4FUNXdZFBmqgy4DTq4DYJNXMLTwEV79KSgmb8J2oHxnVMJdzTMFaytPD3RA1KquAdrePD7fLqHEBq9UoFioem9Cw for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:56:31.227 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4FUNXdZFBmqgy4DTq4DYJNXMLTwEV79KSgmb8J2oHxnVMJdzTMFaytPD3RA1KquAdrePD7fLqHEBq9UoFioem9Cw for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:56:34.537 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4FUNXdZFBmqgy4DTq4DYJNXMLTwEV79KSgmb8J2oHxnVMJdzTMFaytPD3RA1KquAdrePD7fLqHEBq9UoFioem9Cw for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:56:38.715 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4FUNXdZFBmqgy4DTq4DYJNXMLTwEV79KSgmb8J2oHxnVMJdzTMFaytPD3RA1KquAdrePD7fLqHEBq9UoFioem9Cw for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:56:44.066 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4FUNXdZFBmqgy4DTq4DYJNXMLTwEV79KSgmb8J2oHxnVMJdzTMFaytPD3RA1KquAdrePD7fLqHEBq9UoFioem9Cw for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:56:50.350 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4FUNXdZFBmqgy4DTq4DYJNXMLTwEV79KSgmb8J2oHxnVMJdzTMFaytPD3RA1KquAdrePD7fLqHEBq9UoFioem9Cw for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:56:50.563 [pool-2-thread-3] INFO  u.c.m.impl.payment.WithdrawUserCoins - user - 60149041-5867-4046-b6ba-2b1a94b4f4b9 finished withdraw 
+15:56:51.069 [pool-2-thread-3] INFO  u.c.m.impl.payment.PayForUserSpin - user - 60149041-5867-4046-b6ba-2b1a94b4f4b9 start pay SOL amount = 0.026764 for spin
+15:56:57.651 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2Ra9Mx9ASQGGBirAK6w33AboAhG5tkEEn9nMthtdxD7u2MrBSzVe7LNZHinevAB46HbQw3HatMXNZ5UFdrhv2yLT for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:56:59.971 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2Ra9Mx9ASQGGBirAK6w33AboAhG5tkEEn9nMthtdxD7u2MrBSzVe7LNZHinevAB46HbQw3HatMXNZ5UFdrhv2yLT for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:57:03.143 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2Ra9Mx9ASQGGBirAK6w33AboAhG5tkEEn9nMthtdxD7u2MrBSzVe7LNZHinevAB46HbQw3HatMXNZ5UFdrhv2yLT for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:57:07.343 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2Ra9Mx9ASQGGBirAK6w33AboAhG5tkEEn9nMthtdxD7u2MrBSzVe7LNZHinevAB46HbQw3HatMXNZ5UFdrhv2yLT for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:57:07.604 [pool-2-thread-3] INFO  u.c.m.impl.payment.PayForUserSpin - user - 60149041-5867-4046-b6ba-2b1a94b4f4b9 finished pay SOL amount = 0.026764 for spin
+15:58:52.009 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 8440 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+15:58:52.013 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+15:59:03.099 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 11.643 seconds (process running for 12.449)
+15:59:19.372 [pool-2-thread-2] INFO  u.c.m.i.p.CreateSPLTokenAddressForUser - Start pay to user 60149041-5867-4046-b6ba-2b1a94b4f4b9 coin - PONKE amount = 7.884418976 as prize
+15:59:21.525 [pool-2-thread-2] INFO  u.c.m.i.p.CreateSPLTokenAddressForUser - Finished pay to user 60149041-5867-4046-b6ba-2b1a94b4f4b9 coin - PONKE amount = 7.884418976 as prize
+15:59:21.526 [pool-2-thread-2] INFO  u.c.m.impl.payment.WithdrawUserCoins - user - 60149041-5867-4046-b6ba-2b1a94b4f4b9 start withdraw 
+15:59:28.444 [pool-2-thread-2] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3haKdzvDoVGVsDhDt5rERMoTPhKuYJWArGuQSEQnJFCmZZqADyDtF4xcvHrszPU1rS73S9wDX97Zy3NW6WVepofJ for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:59:30.815 [pool-2-thread-2] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3haKdzvDoVGVsDhDt5rERMoTPhKuYJWArGuQSEQnJFCmZZqADyDtF4xcvHrszPU1rS73S9wDX97Zy3NW6WVepofJ for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:59:34.033 [pool-2-thread-2] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3haKdzvDoVGVsDhDt5rERMoTPhKuYJWArGuQSEQnJFCmZZqADyDtF4xcvHrszPU1rS73S9wDX97Zy3NW6WVepofJ for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:59:38.373 [pool-2-thread-2] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3haKdzvDoVGVsDhDt5rERMoTPhKuYJWArGuQSEQnJFCmZZqADyDtF4xcvHrszPU1rS73S9wDX97Zy3NW6WVepofJ for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:59:43.558 [pool-2-thread-2] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3haKdzvDoVGVsDhDt5rERMoTPhKuYJWArGuQSEQnJFCmZZqADyDtF4xcvHrszPU1rS73S9wDX97Zy3NW6WVepofJ for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+15:59:43.845 [pool-2-thread-2] INFO  u.c.m.impl.payment.WithdrawUserCoins - user - 60149041-5867-4046-b6ba-2b1a94b4f4b9 finished withdraw 
+15:59:44.501 [pool-2-thread-2] INFO  u.c.m.impl.payment.PayForUserSpin - user - 60149041-5867-4046-b6ba-2b1a94b4f4b9 start pay SOL amount = 0.019990009 for spin
+16:03:11.386 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 8008 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+16:03:11.392 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+16:03:19.428 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 8.588 seconds (process running for 9.307)
+16:03:37.663 [pool-2-thread-3] INFO  u.c.m.impl.payment.PayForUserSpin - user - 60149041-5867-4046-b6ba-2b1a94b4f4b9 start pay SOL amount = 0.019490009 for spin
+16:05:51.362 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 13252 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+16:05:51.366 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+16:05:59.954 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 9.193 seconds (process running for 9.999)
+16:06:37.171 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 7592 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+16:06:37.176 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+16:06:46.813 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 10.192 seconds (process running for 10.865)
+16:08:00.638 [pool-2-thread-4] INFO  u.c.m.impl.payment.PayForUserSpin - user - 60149041-5867-4046-b6ba-2b1a94b4f4b9 start pay SOL amount = 0.019099129 for spin
+16:08:41.917 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 13896 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+16:08:41.923 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+16:08:50.205 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 8.792 seconds (process running for 9.441)
+16:08:59.462 [pool-2-thread-2] INFO  u.c.m.impl.payment.PayForUserSpin - user - 60149041-5867-4046-b6ba-2b1a94b4f4b9 start pay SOL amount = 0.018999129 for spin
+16:09:06.370 [pool-2-thread-2] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3Vf7C5tzXXEsvNjZiVRzwYhVmWFuz5KY6whiVYpwKTmww4wDEgNMNXFZmQzdpkcXW8a6nfPoN7aPjK4Yzx9j7kF7 for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+16:09:08.672 [pool-2-thread-2] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3Vf7C5tzXXEsvNjZiVRzwYhVmWFuz5KY6whiVYpwKTmww4wDEgNMNXFZmQzdpkcXW8a6nfPoN7aPjK4Yzx9j7kF7 for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+16:09:11.845 [pool-2-thread-2] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3Vf7C5tzXXEsvNjZiVRzwYhVmWFuz5KY6whiVYpwKTmww4wDEgNMNXFZmQzdpkcXW8a6nfPoN7aPjK4Yzx9j7kF7 for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+16:09:16.022 [pool-2-thread-2] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3Vf7C5tzXXEsvNjZiVRzwYhVmWFuz5KY6whiVYpwKTmww4wDEgNMNXFZmQzdpkcXW8a6nfPoN7aPjK4Yzx9j7kF7 for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+16:09:21.203 [pool-2-thread-2] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3Vf7C5tzXXEsvNjZiVRzwYhVmWFuz5KY6whiVYpwKTmww4wDEgNMNXFZmQzdpkcXW8a6nfPoN7aPjK4Yzx9j7kF7 for user - 60149041-5867-4046-b6ba-2b1a94b4f4b9
+16:09:21.588 [pool-2-thread-2] INFO  u.c.m.impl.payment.PayForUserSpin - user - 60149041-5867-4046-b6ba-2b1a94b4f4b9 finished pay SOL amount = 0.018999129 for spin
+13:28:14.785 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 18532 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+13:28:14.815 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+13:28:24.098 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 9.936 seconds (process running for 10.781)
+13:29:45.881 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 17940 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+13:29:45.886 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+13:30:00.814 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 16.335 seconds (process running for 18.337)
+19:59:40.614 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 11024 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+19:59:40.665 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+19:59:49.244 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 9.304 seconds (process running for 10.844)
+20:04:59.385 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 12068 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+20:04:59.390 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+20:05:05.944 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 7.162 seconds (process running for 8.417)
+20:08:04.725 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 10652 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+20:08:04.732 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+20:08:11.360 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 7.47 seconds (process running for 8.807)
+20:13:02.910 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 11680 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+20:13:02.915 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+20:13:08.782 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 6.708 seconds (process running for 7.764)
+20:16:00.568 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 9876 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+20:16:00.574 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+20:16:08.609 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 9.265 seconds (process running for 12.182)
+20:19:25.440 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 4328 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+20:19:25.458 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+20:19:34.997 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 12.36 seconds (process running for 16.28)
+20:20:59.802 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 1952 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+20:20:59.809 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+20:21:07.521 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 8.883 seconds (process running for 10.935)
+20:22:08.287 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 3876 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+20:22:08.292 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+20:22:14.281 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 6.909 seconds (process running for 7.89)
+20:22:46.162 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 2452 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+20:22:46.170 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+20:22:52.168 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 6.991 seconds (process running for 8.119)
+13:07:43.313 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 12140 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+13:07:43.374 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+13:07:52.288 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 9.748 seconds (process running for 11.596)
+13:22:29.675 [pool-2-thread-21] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.0035 for spin
+13:22:46.073 [pool-2-thread-21] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4VEkLzSHZ9YwnvoyYMzBRaYPp3moK8mvkUVjuoMhNQmT4Ek5eyj9SQZ3Z4rHEA7BodgsEpmM8TFZ1Cn6Hj6byAnP for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:23:02.520 [pool-2-thread-21] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4VEkLzSHZ9YwnvoyYMzBRaYPp3moK8mvkUVjuoMhNQmT4Ek5eyj9SQZ3Z4rHEA7BodgsEpmM8TFZ1Cn6Hj6byAnP for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:23:03.246 [pool-2-thread-21] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.0035 for spin
+13:33:07.391 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 8844 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+13:33:07.396 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+13:33:19.209 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 12.757 seconds (process running for 13.642)
+13:33:21.188 [pool-2-thread-1] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00455 for spin
+13:37:35.410 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 11076 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+13:37:35.414 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+13:37:41.422 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 6.615 seconds (process running for 7.408)
+13:37:54.602 [pool-2-thread-7] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00455 for spin
+13:38:01.940 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - GopkM4XyADKi9trzoFSy22iUzvuPYRwrbZVUhakaFGUmt7hUHpqLG5riPNJU6wLn6rH8fPeEpxivZcjoTLmEYxK for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:38:08.208 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - GopkM4XyADKi9trzoFSy22iUzvuPYRwrbZVUhakaFGUmt7hUHpqLG5riPNJU6wLn6rH8fPeEpxivZcjoTLmEYxK for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:38:15.515 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - GopkM4XyADKi9trzoFSy22iUzvuPYRwrbZVUhakaFGUmt7hUHpqLG5riPNJU6wLn6rH8fPeEpxivZcjoTLmEYxK for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:38:15.833 [pool-2-thread-7] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.00455 for spin
+13:38:43.757 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 1668 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+13:38:43.762 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+13:38:54.005 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 10.838 seconds (process running for 11.608)
+13:39:46.510 [pool-2-thread-7] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.005915 for spin
+13:39:53.444 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2rAAAYYpPZ2piBedpocT3LfNNA8Sj29ZgjFxzLdhALcEiksPN3XB5VmDdzCaxruiHDntLfwymwwAxeDfWq3y27SY for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:39:55.841 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2rAAAYYpPZ2piBedpocT3LfNNA8Sj29ZgjFxzLdhALcEiksPN3XB5VmDdzCaxruiHDntLfwymwwAxeDfWq3y27SY for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:39:59.156 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2rAAAYYpPZ2piBedpocT3LfNNA8Sj29ZgjFxzLdhALcEiksPN3XB5VmDdzCaxruiHDntLfwymwwAxeDfWq3y27SY for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:40:03.352 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2rAAAYYpPZ2piBedpocT3LfNNA8Sj29ZgjFxzLdhALcEiksPN3XB5VmDdzCaxruiHDntLfwymwwAxeDfWq3y27SY for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:40:03.671 [pool-2-thread-7] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.005915 for spin
+13:40:24.043 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 2492 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+13:40:24.048 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+13:40:30.412 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 7.367 seconds (process running for 8.526)
+13:42:11.715 [pool-2-thread-13] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00769 for spin
+13:42:18.433 [pool-2-thread-13] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4vEhGUnbAcJUCMGkyYgJNZSPoBM1PSpCxv7Z1MKYULDHtW8vTFh16TkozBwJ32gfzDHgebLbeKFgQM7HYmpVUfXL for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:42:20.755 [pool-2-thread-13] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4vEhGUnbAcJUCMGkyYgJNZSPoBM1PSpCxv7Z1MKYULDHtW8vTFh16TkozBwJ32gfzDHgebLbeKFgQM7HYmpVUfXL for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:42:24.066 [pool-2-thread-13] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4vEhGUnbAcJUCMGkyYgJNZSPoBM1PSpCxv7Z1MKYULDHtW8vTFh16TkozBwJ32gfzDHgebLbeKFgQM7HYmpVUfXL for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:42:28.241 [pool-2-thread-13] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4vEhGUnbAcJUCMGkyYgJNZSPoBM1PSpCxv7Z1MKYULDHtW8vTFh16TkozBwJ32gfzDHgebLbeKFgQM7HYmpVUfXL for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:42:28.414 [pool-2-thread-13] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.00769 for spin
+13:42:54.386 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 12156 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+13:42:54.399 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+13:43:04.301 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 11.689 seconds (process running for 12.369)
+13:43:45.758 [pool-2-thread-5] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.0035 for spin
+13:43:57.844 [pool-2-thread-5] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4opdE1WoW3cvgsnRM4ZBkqysRCYHRebEwtYSBsMcg153orCYkdBnSEfC2N1gsYBZJwNwCQJC2wuj7vm4FDCtC72s for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:44:00.089 [pool-2-thread-5] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4opdE1WoW3cvgsnRM4ZBkqysRCYHRebEwtYSBsMcg153orCYkdBnSEfC2N1gsYBZJwNwCQJC2wuj7vm4FDCtC72s for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:44:03.270 [pool-2-thread-5] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4opdE1WoW3cvgsnRM4ZBkqysRCYHRebEwtYSBsMcg153orCYkdBnSEfC2N1gsYBZJwNwCQJC2wuj7vm4FDCtC72s for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:44:07.607 [pool-2-thread-5] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4opdE1WoW3cvgsnRM4ZBkqysRCYHRebEwtYSBsMcg153orCYkdBnSEfC2N1gsYBZJwNwCQJC2wuj7vm4FDCtC72s for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:44:07.799 [pool-2-thread-5] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.0035 for spin
+13:44:16.995 [pool-2-thread-7] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00455 for spin
+13:44:28.747 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4kH3vJ1N7UYWUXeuoj4AMjAu28rDZqz79BnXMpY6eNVoWPYjUHQZYpUA8JP9oDeRx6cbiKqPAk1Dr5JSiy7Zsa2R for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:44:30.997 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4kH3vJ1N7UYWUXeuoj4AMjAu28rDZqz79BnXMpY6eNVoWPYjUHQZYpUA8JP9oDeRx6cbiKqPAk1Dr5JSiy7Zsa2R for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:44:34.311 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4kH3vJ1N7UYWUXeuoj4AMjAu28rDZqz79BnXMpY6eNVoWPYjUHQZYpUA8JP9oDeRx6cbiKqPAk1Dr5JSiy7Zsa2R for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:44:38.636 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4kH3vJ1N7UYWUXeuoj4AMjAu28rDZqz79BnXMpY6eNVoWPYjUHQZYpUA8JP9oDeRx6cbiKqPAk1Dr5JSiy7Zsa2R for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:44:38.808 [pool-2-thread-7] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.00455 for spin
+13:45:29.396 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 2416 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+13:45:29.399 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+13:45:35.216 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 6.433 seconds (process running for 9.143)
+13:45:42.179 [pool-2-thread-1] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.005915 for spin
+13:45:49.086 [pool-2-thread-1] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4bM2SgWFNcQfY7VEkyfJhWurjyackUGe76KeSAneWBy9TLdJXkBAVDQHfmLPZGfvCcr1fF4HRrN1Y52EfvJPQmz for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:45:51.467 [pool-2-thread-1] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4bM2SgWFNcQfY7VEkyfJhWurjyackUGe76KeSAneWBy9TLdJXkBAVDQHfmLPZGfvCcr1fF4HRrN1Y52EfvJPQmz for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:45:54.652 [pool-2-thread-1] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4bM2SgWFNcQfY7VEkyfJhWurjyackUGe76KeSAneWBy9TLdJXkBAVDQHfmLPZGfvCcr1fF4HRrN1Y52EfvJPQmz for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:45:58.957 [pool-2-thread-1] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4bM2SgWFNcQfY7VEkyfJhWurjyackUGe76KeSAneWBy9TLdJXkBAVDQHfmLPZGfvCcr1fF4HRrN1Y52EfvJPQmz for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:45:59.299 [pool-2-thread-1] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.005915 for spin
+13:47:43.488 [pool-2-thread-3] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00769 for spin
+13:47:49.999 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2tF2DQByMSMgYRyFwQsdPaEJ1pwcoJ6SbdptFtFU6RVmYXsyFGYVKzPsvtXpuMZHcaK8qLdjvba1F7XDHgMn8zpt for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:47:52.194 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2tF2DQByMSMgYRyFwQsdPaEJ1pwcoJ6SbdptFtFU6RVmYXsyFGYVKzPsvtXpuMZHcaK8qLdjvba1F7XDHgMn8zpt for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:47:55.390 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2tF2DQByMSMgYRyFwQsdPaEJ1pwcoJ6SbdptFtFU6RVmYXsyFGYVKzPsvtXpuMZHcaK8qLdjvba1F7XDHgMn8zpt for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:47:59.721 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2tF2DQByMSMgYRyFwQsdPaEJ1pwcoJ6SbdptFtFU6RVmYXsyFGYVKzPsvtXpuMZHcaK8qLdjvba1F7XDHgMn8zpt for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:48:05.029 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2tF2DQByMSMgYRyFwQsdPaEJ1pwcoJ6SbdptFtFU6RVmYXsyFGYVKzPsvtXpuMZHcaK8qLdjvba1F7XDHgMn8zpt for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:48:05.333 [pool-2-thread-3] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.00769 for spin
+13:48:06.605 [pool-2-thread-3] INFO  u.c.m.i.p.CreateSPLTokenAddressForUser - Start pay to user 44e3dc79-d407-4acc-94d1-f8a4cba1e38d coin - $WIF amount = 5.843 as prize
+13:48:13.298 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - XfUQmS3xJ1N1fSULKuZi2idLsB5fDZLk7bsWvfAnoGZbwnwo2zVrvchJn31bJPuTYbKWBsqjT9QgvqoTEvmzSoE for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:48:15.634 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - XfUQmS3xJ1N1fSULKuZi2idLsB5fDZLk7bsWvfAnoGZbwnwo2zVrvchJn31bJPuTYbKWBsqjT9QgvqoTEvmzSoE for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:48:18.811 [pool-2-thread-3] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - XfUQmS3xJ1N1fSULKuZi2idLsB5fDZLk7bsWvfAnoGZbwnwo2zVrvchJn31bJPuTYbKWBsqjT9QgvqoTEvmzSoE for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:50:29.148 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 2520 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+13:50:29.166 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+13:50:37.272 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 10.404 seconds (process running for 12.272)
+13:50:56.367 [pool-2-thread-7] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.0035 for spin
+13:51:03.037 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3QpooSmUATNw7jCkBHMEMggZj7motoMk83zbpLPXcBrxDa2yvjNZeNbgB3VNB1U7D94erYSDc15o3dxo6hQVg9Kc for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:51:05.227 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3QpooSmUATNw7jCkBHMEMggZj7motoMk83zbpLPXcBrxDa2yvjNZeNbgB3VNB1U7D94erYSDc15o3dxo6hQVg9Kc for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:51:08.411 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3QpooSmUATNw7jCkBHMEMggZj7motoMk83zbpLPXcBrxDa2yvjNZeNbgB3VNB1U7D94erYSDc15o3dxo6hQVg9Kc for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:51:12.730 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3QpooSmUATNw7jCkBHMEMggZj7motoMk83zbpLPXcBrxDa2yvjNZeNbgB3VNB1U7D94erYSDc15o3dxo6hQVg9Kc for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:51:17.925 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3QpooSmUATNw7jCkBHMEMggZj7motoMk83zbpLPXcBrxDa2yvjNZeNbgB3VNB1U7D94erYSDc15o3dxo6hQVg9Kc for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:51:18.115 [pool-2-thread-7] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.0035 for spin
+13:51:46.076 [pool-2-thread-13] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00455 for spin
+13:51:52.456 [pool-2-thread-13] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2GTvxX14oL33iJknajC5iUMrphVgdvDpTc82yrz9zkBjER9tmffbVJihuppDSjLwAe1s4WVVnHXn3AoKFZqkjua2 for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:51:54.771 [pool-2-thread-13] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2GTvxX14oL33iJknajC5iUMrphVgdvDpTc82yrz9zkBjER9tmffbVJihuppDSjLwAe1s4WVVnHXn3AoKFZqkjua2 for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:51:57.973 [pool-2-thread-13] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2GTvxX14oL33iJknajC5iUMrphVgdvDpTc82yrz9zkBjER9tmffbVJihuppDSjLwAe1s4WVVnHXn3AoKFZqkjua2 for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:52:02.152 [pool-2-thread-13] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2GTvxX14oL33iJknajC5iUMrphVgdvDpTc82yrz9zkBjER9tmffbVJihuppDSjLwAe1s4WVVnHXn3AoKFZqkjua2 for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:52:02.477 [pool-2-thread-13] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.00455 for spin
+13:52:10.076 [pool-2-thread-15] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.005915 for spin
+13:52:16.634 [pool-2-thread-15] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5BPQ6Qx42eUnABmvUZm6NDSAtryjXCG6w63GZLneXMCNRfEg5UD68ujn4GQHWdhjHKAKgjuaLT8vWeRGcsuQoHjY for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:52:18.804 [pool-2-thread-15] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5BPQ6Qx42eUnABmvUZm6NDSAtryjXCG6w63GZLneXMCNRfEg5UD68ujn4GQHWdhjHKAKgjuaLT8vWeRGcsuQoHjY for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:52:22.137 [pool-2-thread-15] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5BPQ6Qx42eUnABmvUZm6NDSAtryjXCG6w63GZLneXMCNRfEg5UD68ujn4GQHWdhjHKAKgjuaLT8vWeRGcsuQoHjY for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:52:26.318 [pool-2-thread-15] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5BPQ6Qx42eUnABmvUZm6NDSAtryjXCG6w63GZLneXMCNRfEg5UD68ujn4GQHWdhjHKAKgjuaLT8vWeRGcsuQoHjY for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:52:26.533 [pool-2-thread-15] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.005915 for spin
+13:52:50.177 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 11172 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+13:52:50.181 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+13:53:00.945 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 11.259 seconds (process running for 11.946)
+13:53:47.272 [pool-2-thread-11] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00769 for spin
+13:53:53.841 [pool-2-thread-11] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 45TSKHR9FL8EVu9tFn9d6zoQn8hRVFhJX4C2XF3Z4Sj2C4YeS9o1PcbdtorHpiXatbRkty4xZMJjwkX47MFQed9m for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:53:56.156 [pool-2-thread-11] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 45TSKHR9FL8EVu9tFn9d6zoQn8hRVFhJX4C2XF3Z4Sj2C4YeS9o1PcbdtorHpiXatbRkty4xZMJjwkX47MFQed9m for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:53:59.358 [pool-2-thread-11] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 45TSKHR9FL8EVu9tFn9d6zoQn8hRVFhJX4C2XF3Z4Sj2C4YeS9o1PcbdtorHpiXatbRkty4xZMJjwkX47MFQed9m for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:54:03.686 [pool-2-thread-11] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 45TSKHR9FL8EVu9tFn9d6zoQn8hRVFhJX4C2XF3Z4Sj2C4YeS9o1PcbdtorHpiXatbRkty4xZMJjwkX47MFQed9m for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:54:03.876 [pool-2-thread-11] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.00769 for spin
+13:55:22.263 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 5864 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+13:55:22.306 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+13:55:32.073 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 12.649 seconds (process running for 15.671)
+13:56:10.702 [pool-2-thread-5] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.0035 for spin
+13:56:17.354 [pool-2-thread-5] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5YiqKALsUdEsVq7fqhKc8PPD21DQZBYhEdyQ2mm3PY9iMymXp5tjaDijgJJTH8z4jFzhTUT6dW8siSsm4APh12uR for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:56:19.533 [pool-2-thread-5] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5YiqKALsUdEsVq7fqhKc8PPD21DQZBYhEdyQ2mm3PY9iMymXp5tjaDijgJJTH8z4jFzhTUT6dW8siSsm4APh12uR for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:56:22.718 [pool-2-thread-5] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5YiqKALsUdEsVq7fqhKc8PPD21DQZBYhEdyQ2mm3PY9iMymXp5tjaDijgJJTH8z4jFzhTUT6dW8siSsm4APh12uR for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:56:26.919 [pool-2-thread-5] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5YiqKALsUdEsVq7fqhKc8PPD21DQZBYhEdyQ2mm3PY9iMymXp5tjaDijgJJTH8z4jFzhTUT6dW8siSsm4APh12uR for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:56:32.110 [pool-2-thread-5] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5YiqKALsUdEsVq7fqhKc8PPD21DQZBYhEdyQ2mm3PY9iMymXp5tjaDijgJJTH8z4jFzhTUT6dW8siSsm4APh12uR for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+13:56:32.300 [pool-2-thread-5] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.0035 for spin
+13:59:09.017 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 944 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+13:59:09.025 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+13:59:16.843 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 8.525 seconds (process running for 9.657)
+14:01:14.738 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 9596 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+14:01:14.741 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+14:01:26.058 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 11.892 seconds (process running for 12.618)
+14:03:19.966 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 4068 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+14:03:19.972 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+14:03:30.895 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 11.52 seconds (process running for 12.275)
+14:03:50.310 [pool-2-thread-9] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00455 for spin
+14:03:57.102 [pool-2-thread-9] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5scqomUJamMGdEh9uf5q7erbDtRsSPnxKUE3rQh1TXAN1YYBd3xJMurkgyvUAgB9y6ddbRPmFHvHyWrjcJ8ACVCu for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:03:59.329 [pool-2-thread-9] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5scqomUJamMGdEh9uf5q7erbDtRsSPnxKUE3rQh1TXAN1YYBd3xJMurkgyvUAgB9y6ddbRPmFHvHyWrjcJ8ACVCu for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:04:02.513 [pool-2-thread-9] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5scqomUJamMGdEh9uf5q7erbDtRsSPnxKUE3rQh1TXAN1YYBd3xJMurkgyvUAgB9y6ddbRPmFHvHyWrjcJ8ACVCu for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:04:06.854 [pool-2-thread-9] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5scqomUJamMGdEh9uf5q7erbDtRsSPnxKUE3rQh1TXAN1YYBd3xJMurkgyvUAgB9y6ddbRPmFHvHyWrjcJ8ACVCu for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:04:12.024 [pool-2-thread-9] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5scqomUJamMGdEh9uf5q7erbDtRsSPnxKUE3rQh1TXAN1YYBd3xJMurkgyvUAgB9y6ddbRPmFHvHyWrjcJ8ACVCu for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:04:12.208 [pool-2-thread-9] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.00455 for spin
+14:05:10.011 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 10356 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+14:05:10.016 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+14:05:20.881 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 11.505 seconds (process running for 12.223)
+14:10:13.796 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 5492 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+14:10:13.799 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+14:10:20.387 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 7.198 seconds (process running for 8.028)
+14:11:34.520 [pool-2-thread-19] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.005915 for spin
+14:11:41.387 [pool-2-thread-19] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 65VZXaq8zVS5XBNMpdG9qmejesPZbGASBdK7QeCtRa6MYDY3aNQ99sGG1XnihRBjkjyB6pebNnx32uGf7kBJWDjx for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:11:43.701 [pool-2-thread-19] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 65VZXaq8zVS5XBNMpdG9qmejesPZbGASBdK7QeCtRa6MYDY3aNQ99sGG1XnihRBjkjyB6pebNnx32uGf7kBJWDjx for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:11:47.018 [pool-2-thread-19] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 65VZXaq8zVS5XBNMpdG9qmejesPZbGASBdK7QeCtRa6MYDY3aNQ99sGG1XnihRBjkjyB6pebNnx32uGf7kBJWDjx for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:11:51.177 [pool-2-thread-19] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 65VZXaq8zVS5XBNMpdG9qmejesPZbGASBdK7QeCtRa6MYDY3aNQ99sGG1XnihRBjkjyB6pebNnx32uGf7kBJWDjx for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:11:51.362 [pool-2-thread-19] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.005915 for spin
+14:21:39.244 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 4876 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+14:21:39.247 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+14:21:49.370 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 1800 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+14:21:49.373 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+14:21:55.124 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 6.466 seconds (process running for 7.294)
+14:22:18.836 [pool-2-thread-7] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00769 for spin
+14:22:48.022 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 12688 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+14:22:48.026 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+14:22:53.950 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 6.688 seconds (process running for 9.032)
+14:23:11.246 [pool-2-thread-7] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.0035 for spin
+14:23:18.160 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5Jw4aP9wqC46ZHzMYDmJ62KnMv9uic2Dkoh6RBCYtcwTRk2x5ZuhXMhuSCvuoVj6tXYHgebqbzMDKFCAZXtBE7YW for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:23:20.491 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5Jw4aP9wqC46ZHzMYDmJ62KnMv9uic2Dkoh6RBCYtcwTRk2x5ZuhXMhuSCvuoVj6tXYHgebqbzMDKFCAZXtBE7YW for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:23:23.676 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5Jw4aP9wqC46ZHzMYDmJ62KnMv9uic2Dkoh6RBCYtcwTRk2x5ZuhXMhuSCvuoVj6tXYHgebqbzMDKFCAZXtBE7YW for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:23:27.851 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5Jw4aP9wqC46ZHzMYDmJ62KnMv9uic2Dkoh6RBCYtcwTRk2x5ZuhXMhuSCvuoVj6tXYHgebqbzMDKFCAZXtBE7YW for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:23:28.031 [pool-2-thread-7] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.0035 for spin
+14:24:47.651 [pool-2-thread-19] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00455 for spin
+14:24:54.275 [pool-2-thread-19] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - M1QQh8MH7SmJxdZondCXNrDTgwMWYNCv6mPiQRNiNw2pvGzenH2UoiHdL1k1G777UNT3sorgJ2R9Z68bom6E8y5 for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:24:56.472 [pool-2-thread-19] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - M1QQh8MH7SmJxdZondCXNrDTgwMWYNCv6mPiQRNiNw2pvGzenH2UoiHdL1k1G777UNT3sorgJ2R9Z68bom6E8y5 for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:24:59.641 [pool-2-thread-19] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - M1QQh8MH7SmJxdZondCXNrDTgwMWYNCv6mPiQRNiNw2pvGzenH2UoiHdL1k1G777UNT3sorgJ2R9Z68bom6E8y5 for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:25:03.944 [pool-2-thread-19] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - M1QQh8MH7SmJxdZondCXNrDTgwMWYNCv6mPiQRNiNw2pvGzenH2UoiHdL1k1G777UNT3sorgJ2R9Z68bom6E8y5 for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:25:04.110 [pool-2-thread-19] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.00455 for spin
+14:25:47.370 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 12756 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+14:25:47.373 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+14:25:53.218 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 6.733 seconds (process running for 7.641)
+14:26:20.381 [pool-2-thread-9] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.005915 for spin
+14:26:27.724 [pool-2-thread-9] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5AML2K3uN5G4JaAuFG4mojZbjjvM3tWP36xe9VwuXyc9mhjJ1kVAeuo3Paww6a2QcwJG1ErnDBz6X1FxixELhGS for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:26:30.051 [pool-2-thread-9] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5AML2K3uN5G4JaAuFG4mojZbjjvM3tWP36xe9VwuXyc9mhjJ1kVAeuo3Paww6a2QcwJG1ErnDBz6X1FxixELhGS for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:26:33.438 [pool-2-thread-9] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5AML2K3uN5G4JaAuFG4mojZbjjvM3tWP36xe9VwuXyc9mhjJ1kVAeuo3Paww6a2QcwJG1ErnDBz6X1FxixELhGS for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:26:37.747 [pool-2-thread-9] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5AML2K3uN5G4JaAuFG4mojZbjjvM3tWP36xe9VwuXyc9mhjJ1kVAeuo3Paww6a2QcwJG1ErnDBz6X1FxixELhGS for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:26:37.934 [pool-2-thread-9] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.005915 for spin
+14:47:39.143 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 3796 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+14:47:39.147 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+14:47:45.264 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 6.626 seconds (process running for 7.555)
+14:50:20.767 [pool-2-thread-7] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.0035 for spin
+14:50:27.689 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3VteZBABw2MbzhP9QPCymfY1FnaYHNjwLqGuWkQAUEbTKnxtrmxcFPCjWZ5RGqAGBgGos4e7qH54XGDXTY9kff6j for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:50:29.865 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3VteZBABw2MbzhP9QPCymfY1FnaYHNjwLqGuWkQAUEbTKnxtrmxcFPCjWZ5RGqAGBgGos4e7qH54XGDXTY9kff6j for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:50:33.195 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3VteZBABw2MbzhP9QPCymfY1FnaYHNjwLqGuWkQAUEbTKnxtrmxcFPCjWZ5RGqAGBgGos4e7qH54XGDXTY9kff6j for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:50:37.392 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3VteZBABw2MbzhP9QPCymfY1FnaYHNjwLqGuWkQAUEbTKnxtrmxcFPCjWZ5RGqAGBgGos4e7qH54XGDXTY9kff6j for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+14:50:37.722 [pool-2-thread-7] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.0035 for spin
+14:55:57.199 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 1168 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+14:55:57.204 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+14:56:02.729 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 6.02 seconds (process running for 6.719)
+14:57:39.215 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 8844 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+14:57:39.219 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+14:57:48.350 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 9.696 seconds (process running for 10.502)
+15:02:00.933 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 11592 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+15:02:00.937 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+15:02:06.966 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 6.579 seconds (process running for 7.402)
+15:02:39.867 [pool-2-thread-7] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00455 for spin
+15:02:46.524 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 377CYxkJaPXBX3Tza2daSjtLGYDgorySmKBNG2rk5vjMLst1Tw7TmB2SguLd9CfcEDWoPdGGvpTy5bm5sVKpbiHY for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:02:48.710 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 377CYxkJaPXBX3Tza2daSjtLGYDgorySmKBNG2rk5vjMLst1Tw7TmB2SguLd9CfcEDWoPdGGvpTy5bm5sVKpbiHY for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:02:51.901 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 377CYxkJaPXBX3Tza2daSjtLGYDgorySmKBNG2rk5vjMLst1Tw7TmB2SguLd9CfcEDWoPdGGvpTy5bm5sVKpbiHY for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:02:56.221 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 377CYxkJaPXBX3Tza2daSjtLGYDgorySmKBNG2rk5vjMLst1Tw7TmB2SguLd9CfcEDWoPdGGvpTy5bm5sVKpbiHY for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:03:01.541 [pool-2-thread-7] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 377CYxkJaPXBX3Tza2daSjtLGYDgorySmKBNG2rk5vjMLst1Tw7TmB2SguLd9CfcEDWoPdGGvpTy5bm5sVKpbiHY for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:03:01.846 [pool-2-thread-7] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.00455 for spin
+15:03:33.913 [pool-2-thread-13] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.005915 for spin
+15:03:40.554 [pool-2-thread-13] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5ZMQLCfNrNeNVQcFRVtjUpnDP3TM7hYUyTCVfx5VgxDshAAoDCDKWGu3B78qpeTubF8z5rWnj9gzqEuZgy2V2zEH for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:03:42.894 [pool-2-thread-13] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5ZMQLCfNrNeNVQcFRVtjUpnDP3TM7hYUyTCVfx5VgxDshAAoDCDKWGu3B78qpeTubF8z5rWnj9gzqEuZgy2V2zEH for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:03:46.071 [pool-2-thread-13] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5ZMQLCfNrNeNVQcFRVtjUpnDP3TM7hYUyTCVfx5VgxDshAAoDCDKWGu3B78qpeTubF8z5rWnj9gzqEuZgy2V2zEH for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:03:50.407 [pool-2-thread-13] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5ZMQLCfNrNeNVQcFRVtjUpnDP3TM7hYUyTCVfx5VgxDshAAoDCDKWGu3B78qpeTubF8z5rWnj9gzqEuZgy2V2zEH for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:03:50.581 [pool-2-thread-13] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.005915 for spin
+15:07:39.049 [pool-2-thread-33] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.0035 for spin
+15:07:45.634 [pool-2-thread-33] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2VyqyvnGcnLvpDEAZDqGdRW48CrtFqHQgbPT1pWkGNgMEdWB7SryDeB4rpEEvzcYG63PSJ4m9NNAexsYsBEqCKhV for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:07:47.943 [pool-2-thread-33] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2VyqyvnGcnLvpDEAZDqGdRW48CrtFqHQgbPT1pWkGNgMEdWB7SryDeB4rpEEvzcYG63PSJ4m9NNAexsYsBEqCKhV for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:07:51.273 [pool-2-thread-33] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2VyqyvnGcnLvpDEAZDqGdRW48CrtFqHQgbPT1pWkGNgMEdWB7SryDeB4rpEEvzcYG63PSJ4m9NNAexsYsBEqCKhV for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:07:55.458 [pool-2-thread-33] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2VyqyvnGcnLvpDEAZDqGdRW48CrtFqHQgbPT1pWkGNgMEdWB7SryDeB4rpEEvzcYG63PSJ4m9NNAexsYsBEqCKhV for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:07:55.628 [pool-2-thread-33] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.0035 for spin
+15:09:14.426 [pool-2-thread-39] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00455 for spin
+15:09:20.956 [pool-2-thread-39] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2mghq9WyXURPMWix8MSEjcmVfCJKGb3kMUZPRXjxtoAC3ZRAox97w8jD4QyENzX7DFkfNCXs4i5F79w2t5WFYJQH for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:09:23.315 [pool-2-thread-39] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2mghq9WyXURPMWix8MSEjcmVfCJKGb3kMUZPRXjxtoAC3ZRAox97w8jD4QyENzX7DFkfNCXs4i5F79w2t5WFYJQH for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:09:26.624 [pool-2-thread-39] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2mghq9WyXURPMWix8MSEjcmVfCJKGb3kMUZPRXjxtoAC3ZRAox97w8jD4QyENzX7DFkfNCXs4i5F79w2t5WFYJQH for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:09:30.809 [pool-2-thread-39] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2mghq9WyXURPMWix8MSEjcmVfCJKGb3kMUZPRXjxtoAC3ZRAox97w8jD4QyENzX7DFkfNCXs4i5F79w2t5WFYJQH for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:09:31.113 [pool-2-thread-39] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.00455 for spin
+15:12:00.065 [pool-2-thread-45] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.005915 for spin
+15:12:06.694 [pool-2-thread-45] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - on2Yj5Z4nYu48ra7daraCuQPtWJDq9AFpTLGtKshBJC9CKCEU8QTtXKqXT276yLk1RiEdwqDWhKs7uzHdWW6Jc5 for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:12:08.885 [pool-2-thread-45] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - on2Yj5Z4nYu48ra7daraCuQPtWJDq9AFpTLGtKshBJC9CKCEU8QTtXKqXT276yLk1RiEdwqDWhKs7uzHdWW6Jc5 for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:12:12.075 [pool-2-thread-45] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - on2Yj5Z4nYu48ra7daraCuQPtWJDq9AFpTLGtKshBJC9CKCEU8QTtXKqXT276yLk1RiEdwqDWhKs7uzHdWW6Jc5 for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:12:16.429 [pool-2-thread-45] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - on2Yj5Z4nYu48ra7daraCuQPtWJDq9AFpTLGtKshBJC9CKCEU8QTtXKqXT276yLk1RiEdwqDWhKs7uzHdWW6Jc5 for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:12:16.746 [pool-2-thread-45] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.005915 for spin
+15:14:16.231 [pool-2-thread-53] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00769 for spin
+15:14:22.941 [pool-2-thread-53] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5B4a6v2MajFuM2vmG1BJ3XrF9UBaJrbXz6mJb2iLqp7WTnVpWD5i73jMpyoL3u2FLUcXbykCTryDosQ3voJYuAY9 for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:14:25.205 [pool-2-thread-53] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5B4a6v2MajFuM2vmG1BJ3XrF9UBaJrbXz6mJb2iLqp7WTnVpWD5i73jMpyoL3u2FLUcXbykCTryDosQ3voJYuAY9 for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:14:28.389 [pool-2-thread-53] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5B4a6v2MajFuM2vmG1BJ3XrF9UBaJrbXz6mJb2iLqp7WTnVpWD5i73jMpyoL3u2FLUcXbykCTryDosQ3voJYuAY9 for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:14:32.699 [pool-2-thread-53] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5B4a6v2MajFuM2vmG1BJ3XrF9UBaJrbXz6mJb2iLqp7WTnVpWD5i73jMpyoL3u2FLUcXbykCTryDosQ3voJYuAY9 for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:14:33.036 [pool-2-thread-53] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.00769 for spin
+15:15:52.625 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 9836 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+15:15:52.631 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+15:15:58.215 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 6.173 seconds (process running for 6.809)
+15:16:35.346 [pool-2-thread-13] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.0035 for spin
+15:16:42.185 [pool-2-thread-13] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 48QSpcHf3EumkZgSSdtPpmdj5dxK3ihgYKH4db8Mb3Zh4MMEqcvrwYyPxY93CMcVQGJsjLrJHE3tk15X854YBCMP for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:16:44.355 [pool-2-thread-13] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 48QSpcHf3EumkZgSSdtPpmdj5dxK3ihgYKH4db8Mb3Zh4MMEqcvrwYyPxY93CMcVQGJsjLrJHE3tk15X854YBCMP for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:16:47.674 [pool-2-thread-13] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 48QSpcHf3EumkZgSSdtPpmdj5dxK3ihgYKH4db8Mb3Zh4MMEqcvrwYyPxY93CMcVQGJsjLrJHE3tk15X854YBCMP for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:16:51.857 [pool-2-thread-13] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 48QSpcHf3EumkZgSSdtPpmdj5dxK3ihgYKH4db8Mb3Zh4MMEqcvrwYyPxY93CMcVQGJsjLrJHE3tk15X854YBCMP for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:16:52.111 [pool-2-thread-13] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.0035 for spin
+15:17:30.714 [pool-2-thread-19] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00455 for spin
+15:17:37.177 [pool-2-thread-19] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2kvxz1Lx8dJ4gQ2dM1aVPEZCwTQYRgTpdk6QgZzNQvy8eb8sbTnBeaELriowZU7VRWKb8RrHP7qP689NLxWMvV6C for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:17:39.486 [pool-2-thread-19] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2kvxz1Lx8dJ4gQ2dM1aVPEZCwTQYRgTpdk6QgZzNQvy8eb8sbTnBeaELriowZU7VRWKb8RrHP7qP689NLxWMvV6C for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:17:42.665 [pool-2-thread-19] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2kvxz1Lx8dJ4gQ2dM1aVPEZCwTQYRgTpdk6QgZzNQvy8eb8sbTnBeaELriowZU7VRWKb8RrHP7qP689NLxWMvV6C for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:17:46.998 [pool-2-thread-19] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2kvxz1Lx8dJ4gQ2dM1aVPEZCwTQYRgTpdk6QgZzNQvy8eb8sbTnBeaELriowZU7VRWKb8RrHP7qP689NLxWMvV6C for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:17:47.170 [pool-2-thread-19] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.00455 for spin
+15:18:48.792 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 10344 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+15:18:48.796 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+15:18:54.696 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 6.445 seconds (process running for 7.436)
+15:20:06.360 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 2888 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+15:20:06.365 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+15:20:11.834 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 5.988 seconds (process running for 6.614)
+15:20:58.050 [pool-2-thread-19] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.005915 for spin
+15:21:04.832 [pool-2-thread-19] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3SJZMpZGo8GW2T385C4JefybvXcwrMF374BpGvBjntQbC5h3hJPfyDM37EzQj2Fn8V66KrK5Yr91Hm6XQSpS37Pn for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:21:07.005 [pool-2-thread-19] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3SJZMpZGo8GW2T385C4JefybvXcwrMF374BpGvBjntQbC5h3hJPfyDM37EzQj2Fn8V66KrK5Yr91Hm6XQSpS37Pn for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:21:10.312 [pool-2-thread-19] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3SJZMpZGo8GW2T385C4JefybvXcwrMF374BpGvBjntQbC5h3hJPfyDM37EzQj2Fn8V66KrK5Yr91Hm6XQSpS37Pn for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:21:14.489 [pool-2-thread-19] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 3SJZMpZGo8GW2T385C4JefybvXcwrMF374BpGvBjntQbC5h3hJPfyDM37EzQj2Fn8V66KrK5Yr91Hm6XQSpS37Pn for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:21:14.676 [pool-2-thread-19] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.005915 for spin
+15:21:32.977 [pool-2-thread-25] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00769 for spin
+15:21:39.630 [pool-2-thread-25] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5SAJoQpZg47UNFheqHf7PYygx4tNQMCZKxH5TZyEB4N5dgF2pvpyCy5KX4Jtae1fhW6qnY2er331MxCYdVbaQh7f for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:21:41.821 [pool-2-thread-25] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5SAJoQpZg47UNFheqHf7PYygx4tNQMCZKxH5TZyEB4N5dgF2pvpyCy5KX4Jtae1fhW6qnY2er331MxCYdVbaQh7f for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:21:44.997 [pool-2-thread-25] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5SAJoQpZg47UNFheqHf7PYygx4tNQMCZKxH5TZyEB4N5dgF2pvpyCy5KX4Jtae1fhW6qnY2er331MxCYdVbaQh7f for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:21:49.312 [pool-2-thread-25] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5SAJoQpZg47UNFheqHf7PYygx4tNQMCZKxH5TZyEB4N5dgF2pvpyCy5KX4Jtae1fhW6qnY2er331MxCYdVbaQh7f for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:21:54.485 [pool-2-thread-25] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 5SAJoQpZg47UNFheqHf7PYygx4tNQMCZKxH5TZyEB4N5dgF2pvpyCy5KX4Jtae1fhW6qnY2er331MxCYdVbaQh7f for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:21:54.662 [pool-2-thread-25] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.00769 for spin
+15:25:24.750 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 4040 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+15:25:24.754 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+15:25:30.277 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 5.988 seconds (process running for 6.622)
+15:27:13.696 [main] INFO  u.c.memeclimb.MemeClimbApplication - Starting MemeClimbApplication using Java 17.0.7 with PID 11104 (H:\memeClimb\MemeClimb\target\classes started by Yevhenii in H:\memeClimb\MemeClimb)
+15:27:13.701 [main] INFO  u.c.memeclimb.MemeClimbApplication - No active profile set, falling back to 1 default profile: "Blockchain"
+15:27:19.245 [main] INFO  u.c.memeclimb.MemeClimbApplication - Started MemeClimbApplication in 6.018 seconds (process running for 6.634)
+15:28:41.862 [pool-2-thread-29] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.0035 for spin
+15:28:48.728 [pool-2-thread-29] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4sKGpkFEcsGmmaUdpQxLsUaBRtkGySWnP2deGgUFeNcPeCX1nEZrfRkDiyCdhDxTJED7dKRiCzefBcX5Seib9SDG for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:28:51.038 [pool-2-thread-29] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4sKGpkFEcsGmmaUdpQxLsUaBRtkGySWnP2deGgUFeNcPeCX1nEZrfRkDiyCdhDxTJED7dKRiCzefBcX5Seib9SDG for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:28:54.341 [pool-2-thread-29] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4sKGpkFEcsGmmaUdpQxLsUaBRtkGySWnP2deGgUFeNcPeCX1nEZrfRkDiyCdhDxTJED7dKRiCzefBcX5Seib9SDG for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:28:58.514 [pool-2-thread-29] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 4sKGpkFEcsGmmaUdpQxLsUaBRtkGySWnP2deGgUFeNcPeCX1nEZrfRkDiyCdhDxTJED7dKRiCzefBcX5Seib9SDG for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:28:58.689 [pool-2-thread-29] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.0035 for spin
+15:29:13.881 [pool-2-thread-35] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00455 for spin
+15:29:20.230 [pool-2-thread-35] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2oykr4bodwD8TpxV3oNGNhw3JCg1r7qizm9bGN4qtkQNDmboKQiggY3bDkyWHJMULRmLTSeAcrp1SYoMqmMPgUQG for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:29:22.527 [pool-2-thread-35] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2oykr4bodwD8TpxV3oNGNhw3JCg1r7qizm9bGN4qtkQNDmboKQiggY3bDkyWHJMULRmLTSeAcrp1SYoMqmMPgUQG for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:29:25.847 [pool-2-thread-35] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2oykr4bodwD8TpxV3oNGNhw3JCg1r7qizm9bGN4qtkQNDmboKQiggY3bDkyWHJMULRmLTSeAcrp1SYoMqmMPgUQG for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:29:30.029 [pool-2-thread-35] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2oykr4bodwD8TpxV3oNGNhw3JCg1r7qizm9bGN4qtkQNDmboKQiggY3bDkyWHJMULRmLTSeAcrp1SYoMqmMPgUQG for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:29:30.345 [pool-2-thread-35] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.00455 for spin
+15:29:59.699 [pool-2-thread-43] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.005915 for spin
+15:30:06.153 [pool-2-thread-43] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 499UFHzTXgKg7XZUjz9w3FfyBM2THEbEvS3mVKy7zWQZs7fa2VifADTkt8GeDpdUFzAybWCph4A1B2mDnExqmxQS for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:30:08.483 [pool-2-thread-43] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 499UFHzTXgKg7XZUjz9w3FfyBM2THEbEvS3mVKy7zWQZs7fa2VifADTkt8GeDpdUFzAybWCph4A1B2mDnExqmxQS for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:30:11.787 [pool-2-thread-43] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 499UFHzTXgKg7XZUjz9w3FfyBM2THEbEvS3mVKy7zWQZs7fa2VifADTkt8GeDpdUFzAybWCph4A1B2mDnExqmxQS for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:30:16.102 [pool-2-thread-43] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 499UFHzTXgKg7XZUjz9w3FfyBM2THEbEvS3mVKy7zWQZs7fa2VifADTkt8GeDpdUFzAybWCph4A1B2mDnExqmxQS for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:30:16.424 [pool-2-thread-43] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.005915 for spin
+15:31:18.848 [pool-2-thread-57] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d start pay SOL amount = 0.00769 for spin
+15:31:25.306 [pool-2-thread-57] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2i9LJGLGns9sDjYoz2rZd4DVtR2GjmB8t94fqQmG8f8h4vtEvvVLot5h9PuTJfCkEsPLuVCCud3cSSB2ponAGzum for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:31:27.489 [pool-2-thread-57] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2i9LJGLGns9sDjYoz2rZd4DVtR2GjmB8t94fqQmG8f8h4vtEvvVLot5h9PuTJfCkEsPLuVCCud3cSSB2ponAGzum for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:31:30.679 [pool-2-thread-57] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2i9LJGLGns9sDjYoz2rZd4DVtR2GjmB8t94fqQmG8f8h4vtEvvVLot5h9PuTJfCkEsPLuVCCud3cSSB2ponAGzum for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:31:34.869 [pool-2-thread-57] INFO  u.c.m.impl.payment.HashChecker - Try to check hash - 2i9LJGLGns9sDjYoz2rZd4DVtR2GjmB8t94fqQmG8f8h4vtEvvVLot5h9PuTJfCkEsPLuVCCud3cSSB2ponAGzum for user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d
+15:31:35.048 [pool-2-thread-57] INFO  u.c.m.impl.payment.PayForUserSpin - user - 44e3dc79-d407-4acc-94d1-f8a4cba1e38d finished pay SOL amount = 0.00769 for spin

@@ -124,7 +124,7 @@ public class BlockchainBalanceServiceImpl implements BalanceService {
     @Override
     public void withdraw(UserDto user, String withdrawWallet) {
         PaymentInformation paymentInformation =
-                PaymentInformation.getInstanceWithdraw(user, withdrawWallet, 1, 1, user);
+                PaymentInformation.getInstanceWithdraw(user, withdrawWallet, 100_000, 1, user);
 
         solanaService.withdraw(paymentInformation);
     }
