@@ -57,8 +57,7 @@ public class ChoosePool extends Action implements Callback {
                 .replace(POOL.getKey(), displayPool(pool, completedStep))
                 .replace(STEP.getKey(), stepInfo)
                 .replace(COUNT_OF_STEP.getKey(), String.valueOf(pool.getSteps().size()))
-                .replace(INITIAL_FEE.getKey(), String.valueOf(pool.getInitialFee()))
-                .replace(TOP_REWARD.getKey(), pool.getStringTopReward());
+                .replace(INITIAL_FEE.getKey(), String.valueOf(pool.getInitialFee()));
     }
 
     public String displayPool(PoolDto poolDto, int countCompletedSteps) {

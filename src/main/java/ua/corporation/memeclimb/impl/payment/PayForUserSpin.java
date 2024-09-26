@@ -25,13 +25,13 @@ public class PayForUserSpin extends BasePayment implements PaymentOperation {
 
 
     public PayForUserSpin(Connection sol4kConnection, RpcClient solanajClient, PaymentInformation paymentInformation,
-                          ReentrantLock lock, TransactionMapper transactionMapper) {
+                          ReentrantLock lock, TransactionMapper transactionMapper, long balanceBeforeSpin) {
         super(sol4kConnection, transactionMapper);
         this.paymentInformation = paymentInformation;
         this.lock = lock;
         this.hashChecker =
-                new HashChecker(solanajClient, paymentInformation.getPayerPublicKey(), paymentInformation.getUserId(),
-                        10, Commitment.FINALIZED);
+                new SpinHashChecker(sol4kConnection, solanajClient, paymentInformation.getPayerPublicKey(), paymentInformation.getUserId(),
+                        balanceBeforeSpin, 10, Commitment.CONFIRMED);
     }
 
     public void run(int reCallCounter) {
@@ -52,7 +52,7 @@ public class PayForUserSpin extends BasePayment implements PaymentOperation {
     private void payForSpin(int counter, int reCallCounter) {
         try {
             String hash = sendPaymentTransaction(paymentInformation);
-            Thread.sleep(5000);
+            Thread.sleep(3000);
             hashChecker.check(hash);
         } catch (Exception e) {
             tryToFixProblem(counter, reCallCounter, e);
@@ -76,10 +76,9 @@ public class PayForUserSpin extends BasePayment implements PaymentOperation {
     }
 
     private void tryToFixProblem(int counter, int reCallCounter, Exception e) {
-
         if (isProblemWithBlockchain(e)) {
             try {
-                Thread.sleep(5000);
+                Thread.sleep(3000);
                 retryCall(counter, reCallCounter, e);
             } catch (InterruptedException ex) {
                 logger.error("Server problem with pay for spin user - " + paymentInformation.getUserId());

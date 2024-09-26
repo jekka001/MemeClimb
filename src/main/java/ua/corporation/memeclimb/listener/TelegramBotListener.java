@@ -36,8 +36,7 @@ public class TelegramBotListener implements UpdatesListener {
     private final List<MemeMessage> memeMessages = new ArrayList<>();
     private final List<MemeMessage> processingMessages = new ArrayList<>();
     private final Internationalization internationalization = new Internationalization();
-    private final ExecutorService threadExecutor = Executors.newFixedThreadPool(100);
-
+    private final ExecutorService threadExecutor = Executors.newFixedThreadPool(30);
 
     public TelegramBotListener(@Autowired TelegramCreator creator,
                                @Value("${memeClimbBotToken}") String propertyBotToken) {
@@ -99,17 +98,19 @@ public class TelegramBotListener implements UpdatesListener {
 
     private void waitingMethod(Future<Boolean> future, MemeMessage memeMessage) {
         try {
-            MemeMessage firstProcessingMessage = sendMessageBeforeAnswer(memeMessage, FIRST_PROCESSING);
-            if (firstProcessingMessage != null) {
-                processingMessages.add(firstProcessingMessage);
-                Thread.sleep(1500);
-                if (!future.isDone()) {
-                    MemeMessage secondProcessingMessage = sendMessageBeforeAnswer(memeMessage, SECOND_PROCESSING);
-                    processingMessages.add(secondProcessingMessage);
-                    Thread.sleep(3000);
+            if (!future.isDone()) {
+                MemeMessage firstProcessingMessage = sendMessageBeforeAnswer(memeMessage, FIRST_PROCESSING);
+                if (firstProcessingMessage != null) {
+                    processingMessages.add(firstProcessingMessage);
+                    Thread.sleep(1500);
                     if (!future.isDone()) {
-                        MemeMessage thirdProcessingMessage = sendMessageBeforeAnswer(memeMessage, THIRD_PROCESSING);
-                        processingMessages.add(thirdProcessingMessage);
+                        MemeMessage secondProcessingMessage = sendMessageBeforeAnswer(memeMessage, SECOND_PROCESSING);
+                        processingMessages.add(secondProcessingMessage);
+                        Thread.sleep(3000);
+                        if (!future.isDone()) {
+                            MemeMessage thirdProcessingMessage = sendMessageBeforeAnswer(memeMessage, THIRD_PROCESSING);
+                            processingMessages.add(thirdProcessingMessage);
+                        }
                     }
                 }
             }
@@ -171,7 +172,8 @@ public class TelegramBotListener implements UpdatesListener {
                     "(for last spin we didn't take pay)";
             Message message = memeClimbBot.execute(bedCommand(chatId, error)).message();
             memeMessages.add(new MemeMessage(message));
-        } else if (ex.getClass() == ServerProblemException.class) {
+        } else if (ex.getClass() == ServerProblemException.class ||
+                ex.getClass() == PayForSpinException.class) {
             String error = "Sorry, some problem with server, please try again";
             Message message = memeClimbBot.execute(bedCommand(chatId, error)).message();
             memeMessages.add(new MemeMessage(message));

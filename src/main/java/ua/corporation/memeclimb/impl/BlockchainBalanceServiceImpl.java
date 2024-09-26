@@ -91,7 +91,7 @@ public class BlockchainBalanceServiceImpl implements BalanceService {
         UserDto server = userService.getServerWallet();
 
         PaymentInformation paymentInformation =
-                PaymentInformation.getInstancePayForSpin(user, coinDto, server, unitLimit, unitPrice, user);
+                PaymentInformation.getInstancePayForSpin(user, coinDto, server, unitLimit, Double.valueOf(unitPrice).intValue(), user);
 
         solanaService.getPayFromUser(paymentInformation);
     }

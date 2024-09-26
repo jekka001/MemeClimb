@@ -58,7 +58,8 @@ public class SolanaServiceImpl implements SolanaService {
         ReentrantLock lock = new ReentrantLock();
 
         PayForUserSpin payForUserSpin =
-                new PayForUserSpin(sol4kConnection, solanajClient, paymentInformation, lock, transactionMapper);
+                new PayForUserSpin(sol4kConnection, solanajClient, paymentInformation, lock, transactionMapper,
+                        getAccountBalance(paymentInformation.getUser()));
 
         payForUserSpin.run(3);
     }
@@ -157,7 +158,8 @@ public class SolanaServiceImpl implements SolanaService {
         setCoinAmountRaw(paymentInformation);
 
         PayForUserSpin makeTransactionRunnable =
-                new PayForUserSpin(sol4kConnection, solanajClient, paymentInformation, lock, transactionMapper);
+                new PayForUserSpin(sol4kConnection, solanajClient, paymentInformation, lock, transactionMapper,
+                        getAccountBalance(paymentInformation.getUser()));
 
         makeTransactionRunnable.run(3);
     }
