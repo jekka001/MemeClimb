@@ -7,6 +7,7 @@ import org.sol4k.api.AccountInfo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ua.corporation.memeclimb.entity.main.Analytics;
 import ua.corporation.memeclimb.entity.main.PaymentInformation;
 import ua.corporation.memeclimb.entity.main.UserSplAddress;
 import ua.corporation.memeclimb.entity.main.dto.CoinDto;
@@ -18,6 +19,8 @@ import ua.corporation.memeclimb.impl.payment.WithdrawUserCoins;
 import ua.corporation.memeclimb.mapper.TransactionMapper;
 import ua.corporation.memeclimb.service.*;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -31,10 +34,12 @@ public class SolanaServiceImpl implements SolanaService {
     private final MoralisService moralisService;
     private final CoinService coinService;
     private final TransactionMapper transactionMapper;
+    private final AnalyticsService analyticsService;
 
     public SolanaServiceImpl(@Value("${helius.rpc.client}") String heliusRPCClient, @Value("${fee.in.solana}") int feeInSolana,
                              JupiterService jupiterService, UserSplAddressService splAddressService,
-                             MoralisService moralisService, CoinService coinService, TransactionMapper transactionMapper) {
+                             MoralisService moralisService, CoinService coinService, TransactionMapper transactionMapper,
+                             AnalyticsService analyticsService) {
         this.solanajClient = new RpcClient(heliusRPCClient);
         this.sol4kConnection = new Connection(heliusRPCClient);
         this.feeInSolana = feeInSolana;
@@ -43,6 +48,7 @@ public class SolanaServiceImpl implements SolanaService {
         this.moralisService = moralisService;
         this.coinService = coinService;
         this.transactionMapper = transactionMapper;
+        this.analyticsService = analyticsService;
     }
 
     @Override
@@ -62,6 +68,24 @@ public class SolanaServiceImpl implements SolanaService {
                         getAccountBalance(paymentInformation.getUser()));
 
         payForUserSpin.run(3);
+        createAnalytics(
+                paymentInformation.getUser().getName(),
+                paymentInformation.getPayerPublicKey(),
+                paymentInformation.getReceiverPublicKey(),
+                paymentInformation.getAmount(),
+                paymentInformation.getSymbol()
+        );
+    }
+
+    private void createAnalytics(String userName, String sendAddress, String receiveAddress, Double amount, String symbol) {
+        Analytics analytics = new Analytics();
+        analytics.setUserName(userName);
+        analytics.setSendAddress(sendAddress);
+        analytics.setReceiveAddress(receiveAddress);
+        analytics.setAmount(amount);
+        analytics.setSymbol(symbol);
+        analytics.setDataTime(Timestamp.from(Instant.now()));
+        analyticsService.save(analytics);
     }
 
     @Override
@@ -74,6 +98,13 @@ public class SolanaServiceImpl implements SolanaService {
         } else {
             sendPrizeTransactionForUSDT(paymentInformation, lock);
         }
+        createAnalytics(
+                paymentInformation.getUser().getName(),
+                paymentInformation.getPayerPublicKey(),
+                paymentInformation.getReceiverPublicKey(),
+                paymentInformation.getAmount(),
+                paymentInformation.getSymbol()
+        );
     }
 
     private void sendPrizeTransactionForAllToken(PaymentInformation paymentInformation, ReentrantLock lock) {

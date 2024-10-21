@@ -141,5 +141,22 @@
             );
         </sql>
     </changeSet>
+    <changeSet logicalFilePath="1-create-tables"
+               id="9-create-analytics-table" author="y.z.">
+        <comment>create analytics table</comment>
+        <sql>
+            CREATE TABLE "analytics"
+            (
+                id              uuid            NOT NULL DEFAULT uuid_generate_v4(),
+                user_name       varchar(50)     NOT NULL,
+                send_address    varchar(50)     NOT NULL,
+                receive_address varchar(50)     NOT NULL,
+                amount          numeric(100, 2) NOT NULL DEFAULT 0,
+                symbol          varchar(10)     NOT NULL,
+                data_time       timestamp       NOT NULL,
+                CONSTRAINT analytics_pk PRIMARY KEY (id)
+            );
+        </sql>
+    </changeSet>
 
 </databaseChangeLog>
