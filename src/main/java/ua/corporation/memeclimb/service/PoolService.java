@@ -16,7 +16,7 @@ public interface PoolService {
 
     ParticipantDto getParticipant(PoolDto pool, UserDto user);
 
-    int getUserStep(UserDto user);
+    int getUserStep(PoolDto pool, UserDto user);
 
     void saveParticipant(UserDto user);
 
@@ -31,6 +31,7 @@ public interface PoolService {
     void addStep(UserDto user);
 
     Coin chosePoolRewardCoin(UUID uuid);
+
     Coin choseTopRewardCoin(UUID uuid);
 
     void delete();

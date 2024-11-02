@@ -26,14 +26,17 @@ public class AllSteps extends Action implements Callback {
     private UserDto user;
     private PoolDto pool;
     private CoinDto coinDto;
+    private final String text;
 
-    public AllSteps(Internationalization internationalization, PoolService poolService, UserService userService, BalanceService balanceService) {
+    public AllSteps(Internationalization internationalization, PoolService poolService, UserService userService,
+                    BalanceService balanceService, String text) {
         super(internationalization, poolService, userService, balanceService);
+        this.text = text;
     }
 
     @Override
-    public List<SendMessage> generate(long chatId, UserDto user) {
-        this.user = user;
+    public List<SendMessage> generate(long chatId, UserDto userDto) {
+        this.user = prepareUser(userDto, text, KEY);
         this.pool = poolService.getPool(user.getChosenPoolId());
         coinDto = saveSpinResult(user, 0, SPIN_STATE);
 

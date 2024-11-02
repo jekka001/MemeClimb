@@ -10,9 +10,7 @@ import ua.corporation.memeclimb.entity.main.Step;
 import ua.corporation.memeclimb.entity.main.dto.PoolDto;
 import ua.corporation.memeclimb.entity.main.dto.UserDto;
 import ua.corporation.memeclimb.lang.Internationalization;
-import ua.corporation.memeclimb.service.BalanceService;
-import ua.corporation.memeclimb.service.PoolService;
-import ua.corporation.memeclimb.service.UserService;
+import ua.corporation.memeclimb.service.*;
 
 import java.util.List;
 
@@ -27,14 +25,15 @@ public class ChoosePool extends Action implements Callback {
     private UserDto user;
     private PoolDto pool;
 
-    public ChoosePool(Internationalization internationalization, PoolService poolService, UserService userService, BalanceService balanceService, String text) {
-        super(internationalization, poolService, userService, balanceService);
+    public ChoosePool(Internationalization internationalization, PoolService poolService, UserService userService,
+                      BalanceService balanceService, MoralisService moralisService, CoinService coinService, String text) {
+        super(internationalization, poolService, userService, balanceService, moralisService, coinService);
         this.text = text;
     }
 
     @Override
     public List<SendMessage> generate(long chatId, UserDto userDto) {
-        this.user = prepareUser(userDto);
+        this.user = prepareUser(userDto, text, KEY);
         this.pool = poolService.getPool(user.getChosenPoolId());
 
         String text = prepareText();
@@ -42,22 +41,16 @@ public class ChoosePool extends Action implements Callback {
         return callback(chatId, text);
     }
 
-    private UserDto prepareUser(UserDto user) {
-        String poolId = text.replace(KEY, "");
-
-        return userService.saveChosenPool(poolId, user);
-    }
-
     private String prepareText() {
         String text = internationalization.getLocalizationMessage(KEY);
-        int completedStep = poolService.getUserStep(user);
+        int completedStep = poolService.getUserStep(pool, user);
         String stepInfo = getStepInfo(completedStep, pool);
 
         return text
                 .replace(POOL.getKey(), displayPool(pool, completedStep))
                 .replace(STEP.getKey(), stepInfo)
                 .replace(COUNT_OF_STEP.getKey(), String.valueOf(pool.getSteps().size()))
-                .replace(INITIAL_FEE.getKey(), String.valueOf(pool.getInitialFee()));
+                .replace(INITIAL_FEE.getKey(), getFeeWithUsdt(user));
     }
 
     public String displayPool(PoolDto poolDto, int countCompletedSteps) {

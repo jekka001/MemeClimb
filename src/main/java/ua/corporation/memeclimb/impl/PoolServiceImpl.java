@@ -56,13 +56,13 @@ public class PoolServiceImpl implements PoolService {
     }
 
     @Override
-    public int getUserStep(UserDto user) {
+    public int getUserStep(PoolDto poolDto, UserDto user) {
         if (user.getChosenPoolId() == null) {
             return 0;
         }
-        PoolDto chosenPool = getPool(user.getChosenPoolId());
+//        PoolDto chosenPool = getPool(user.getChosenPoolId());
 
-        return participantService.getUserStep(chosenPool, user);
+        return participantService.getUserStep(poolDto, user);
     }
 
     @Override

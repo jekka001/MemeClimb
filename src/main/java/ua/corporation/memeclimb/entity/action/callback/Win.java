@@ -16,19 +16,24 @@ import ua.corporation.memeclimb.service.UserService;
 import java.util.List;
 
 import static ua.corporation.memeclimb.config.Markup.WIN_BUTTONS;
-import static ua.corporation.memeclimb.config.ReplayText.*;
+import static ua.corporation.memeclimb.config.ReplayText.POOL_NAME;
+import static ua.corporation.memeclimb.config.ReplayText.TOP_REWARD;
 
 public class Win extends Action implements Callback {
     public static final SpinState SPIN_STATE = SpinState.WIN;
     public static final String KEY = "win";
     private PoolDto pool;
+    private final String text;
 
-    public Win(Internationalization internationalization, PoolService poolService, UserService userService, BalanceService balanceService) {
+    public Win(Internationalization internationalization, PoolService poolService, UserService userService,
+               BalanceService balanceService, String text) {
         super(internationalization, poolService, userService, balanceService);
+        this.text = text;
     }
 
     @Override
-    public List<SendMessage> generate(long chatId, UserDto user) {
+    public List<SendMessage> generate(long chatId, UserDto userDto) {
+        UserDto user = prepareUser(userDto, text, KEY);
         this.pool = poolService.getPool(user.getChosenPoolId());
         PoolCoin poolCoin = pool.getTopReward();
 

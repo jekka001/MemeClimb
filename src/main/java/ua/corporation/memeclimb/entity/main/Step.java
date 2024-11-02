@@ -27,6 +27,7 @@ public class Step {
 
     public String displayStep() {
         return "<b>\uD83E\uDE99 Step " + textNumber + "</b>\n" +
+                "of total " + pool.getSteps().size() + " Levels in the " + pool.getName() + "\n" +
                 "<b>  - Top Prize Chance: " + priceChance + "%</b>\n" +
                 "  - " + secondMessage +
                 (thirdMessage.isEmpty() ? "" : "\n" + "<b> - " + thirdMessage + "</b>");
@@ -34,6 +35,7 @@ public class Step {
 
     public String displayCurrentStep() {
         return "\uD83E\uDE99 Step " + textNumber + "<b> ⬅️[You are here] ⬅️</b>\n" +
+                "of total " + pool.getSteps().size() + " Levels in the " + pool.getName() + "\n" +
                 "  - Top Prize Chance: " + priceChance + "% <b>Increased!</b>\n" +
                 "  - You're getting there! \uD83C\uDFAF \n";
     }

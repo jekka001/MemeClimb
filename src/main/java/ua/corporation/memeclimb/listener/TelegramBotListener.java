@@ -19,7 +19,10 @@ import ua.corporation.memeclimb.service.TelegramCreator;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import static ua.corporation.memeclimb.config.Markup.PROBLEM_WITH_BALANCE;
 import static ua.corporation.memeclimb.config.Markup.START_BUTTONS;
@@ -53,19 +56,12 @@ public class TelegramBotListener implements UpdatesListener {
         if (update.myChatMember() == null) {
             MemeMessage memeMessage = new MemeMessage(update);
             if (!memeMessages.contains(memeMessage)) {
-                threadExecutor.execute(() -> {
-                    try {
-                        Thread.sleep(1000);
-                        prepareChat(memeMessage);
-                        Future<Boolean> future = CompletableFuture.supplyAsync(() -> {
-                            makeAnswer(memeMessage);
-                            return true;
-                        }, threadExecutor);
-                        threadExecutor.execute(() -> makeProcessing(future, memeMessage));
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
+                prepareChat(memeMessage);
+                Future<Boolean> future = CompletableFuture.supplyAsync(() -> {
+                    makeAnswer(memeMessage);
+                    return true;
+                }, threadExecutor);
+                threadExecutor.execute(() -> makeProcessing(future, memeMessage));
             }
         }
     }

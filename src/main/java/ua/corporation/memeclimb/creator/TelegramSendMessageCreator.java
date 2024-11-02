@@ -11,10 +11,7 @@ import ua.corporation.memeclimb.entity.action.message.WithdrawSend;
 import ua.corporation.memeclimb.entity.main.MemeMessage;
 import ua.corporation.memeclimb.entity.main.dto.UserDto;
 import ua.corporation.memeclimb.lang.Internationalization;
-import ua.corporation.memeclimb.service.BalanceService;
-import ua.corporation.memeclimb.service.PoolService;
-import ua.corporation.memeclimb.service.TelegramCreator;
-import ua.corporation.memeclimb.service.UserService;
+import ua.corporation.memeclimb.service.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +22,8 @@ public class TelegramSendMessageCreator implements TelegramCreator {
     private final UserService userService;
     private final PoolService poolService;
     private final BalanceService balanceService;
+    private final MoralisService moralisService;
+    private final CoinService coinService;
     private Internationalization internationalization;
 
     @Override
@@ -45,7 +44,7 @@ public class TelegramSendMessageCreator implements TelegramCreator {
         spinAction.add(Win.KEY);
         spinAction.add(AllSteps.KEY);
 
-        return spinAction.contains(data);
+        return spinAction.stream().anyMatch(data::startsWith);
     }
 
     private Action createAction(String actionKey) {
@@ -56,9 +55,6 @@ public class TelegramSendMessageCreator implements TelegramCreator {
             case Check.KEY -> new Check(internationalization, balanceService);
             case Pools.SECOND_KEY -> new Pools(internationalization, poolService, userService, 1);
             case Withdraw.KEY -> new Withdraw(internationalization, balanceService);
-            case Lose.KEY -> new Lose(internationalization, poolService, userService, balanceService);
-            case Win.KEY -> new Win(internationalization, poolService, userService, balanceService);
-            case AllSteps.KEY -> new AllSteps(internationalization, poolService, userService, balanceService);
             case HowItWorks.KEY -> new HowItWorks(internationalization);
             case Support.KEY -> new Support(internationalization);
             case EarnMore.KEY -> new EarnMore(internationalization);
@@ -67,8 +63,15 @@ public class TelegramSendMessageCreator implements TelegramCreator {
     }
 
     private Action chooseActionWithoutKey(String actionKey) {
-        if (actionKey.contains(ChoosePool.KEY)) {
-            return new ChoosePool(internationalization, poolService, userService, balanceService, actionKey);
+        if (actionKey.contains(Lose.KEY)) {
+            return new Lose(internationalization, poolService, userService, balanceService, actionKey);
+        } else if (actionKey.contains(Win.KEY)) {
+            return new Win(internationalization, poolService, userService, balanceService, actionKey);
+        } else if (actionKey.contains(AllSteps.KEY)) {
+            return new AllSteps(internationalization, poolService, userService, balanceService, actionKey);
+        } else if (actionKey.contains(ChoosePool.KEY)) {
+            return new ChoosePool(internationalization, poolService, userService,
+                    balanceService, moralisService, coinService, actionKey);
         } else if (WithdrawSend.isWalletAddress(actionKey)) {
             return new WithdrawSend(internationalization, balanceService, actionKey);
         } else if (Authority.checkAuthority(actionKey)) {

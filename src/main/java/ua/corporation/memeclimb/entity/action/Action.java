@@ -14,15 +14,14 @@ import ua.corporation.memeclimb.entity.main.dto.UserDto;
 import ua.corporation.memeclimb.exception.EmptyBalanceException;
 import ua.corporation.memeclimb.lang.ButtonText;
 import ua.corporation.memeclimb.lang.Internationalization;
-import ua.corporation.memeclimb.service.BalanceService;
-import ua.corporation.memeclimb.service.PoolService;
-import ua.corporation.memeclimb.service.UserService;
+import ua.corporation.memeclimb.service.*;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 import static ua.corporation.memeclimb.config.ReplayText.SPIN_FEE;
 import static ua.corporation.memeclimb.lang.ButtonText.SPIN_NEXT;
@@ -32,14 +31,27 @@ public abstract class Action {
     protected final PoolService poolService;
     protected final UserService userService;
     protected final BalanceService balanceService;
+    protected MoralisService moralisService;
+    protected CoinService coinService;
 
     private final Random random = new Random();
 
-    protected Action(Internationalization internationalization, PoolService poolService, UserService userService, BalanceService balanceService) {
+    protected Action(Internationalization internationalization, PoolService poolService, UserService userService,
+                     BalanceService balanceService) {
         this.internationalization = internationalization;
         this.poolService = poolService;
         this.userService = userService;
         this.balanceService = balanceService;
+    }
+
+    protected Action(Internationalization internationalization, PoolService poolService, UserService userService,
+                     BalanceService balanceService, MoralisService moralisService, CoinService coinService) {
+        this.internationalization = internationalization;
+        this.poolService = poolService;
+        this.userService = userService;
+        this.balanceService = balanceService;
+        this.moralisService = moralisService;
+        this.coinService = coinService;
     }
 
     private Action() {
@@ -49,6 +61,12 @@ public abstract class Action {
     public abstract List<SendMessage> generate(long chatId, UserDto user);
 
     protected abstract SendMessage createSendMessage(Long chatId, String text);
+
+    protected UserDto prepareUser(UserDto user, String text, String key) {
+        String poolId = text.replace(key, "");
+
+        return userService.saveChosenPool(poolId, user);
+    }
 
     protected CoinDto saveSpinResult(UserDto user, double prize, SpinState spinState) {
         double fee = getFee(user).doubleValue();
@@ -117,14 +135,14 @@ public abstract class Action {
     protected InlineKeyboardButton getSpinButton(PoolDto pool, UserDto user, boolean isNextSpin) {
         String spinButtonText = isNextSpin ? SPIN_NEXT.getKey(internationalization) : getSpinButtonText(pool, user);
         int allSteps = pool.getSteps().size();
-        int userStep = poolService.getUserStep(user);
+        int userStep = poolService.getUserStep(pool, user);
 
         BigDecimal fee = getFee(user);
         boolean winResult = getResult(user);
 
         spinButtonText = spinButtonText.replace(SPIN_FEE.getKey(), fee.toString());
 
-        return createSpinButton(spinButtonText, allSteps, userStep, winResult);
+        return createSpinButton(spinButtonText, allSteps, userStep, winResult, pool.getId());
     }
 
     private boolean getResult(UserDto user) {
@@ -133,7 +151,7 @@ public abstract class Action {
         double ratioProbability = chosenPool.getRatioProbability();
         int allSteps = chosenPool.getSteps().size();
         double probabilityWin = chosenPool.getProbabilityWin();
-        int userStep = poolService.getUserStep(user);
+        int userStep = poolService.getUserStep(chosenPool, user);
 
         return calculateSpinResult(ratioProbability, allSteps, probabilityWin, userStep);
     }
@@ -153,22 +171,22 @@ public abstract class Action {
         return randomNumber > (100 - (chanceRatio * 100));
     }
 
-    private InlineKeyboardButton createSpinButton(String spinText, int allSteps, int userStep, boolean winResult) {
+    private InlineKeyboardButton createSpinButton(String spinText, int allSteps, int userStep, boolean winResult, UUID poolId) {
         if (winResult) {
-            return new InlineKeyboardButton(spinText).callbackData(Win.KEY);
+            return new InlineKeyboardButton(spinText).callbackData(Win.KEY + poolId);
         } else if (allSteps == userStep + 1) {
-            return new InlineKeyboardButton(spinText).callbackData(AllSteps.KEY);
+            return new InlineKeyboardButton(spinText).callbackData(AllSteps.KEY + poolId);
         } else {
-            return new InlineKeyboardButton(spinText).callbackData(Lose.KEY);
+            return new InlineKeyboardButton(spinText).callbackData(Lose.KEY + poolId);
         }
     }
 
-    private BigDecimal getFee(UserDto user) {
+    protected BigDecimal getFee(UserDto user) {
         PoolDto chosenPool = poolService.getPool(user.getChosenPoolId());
 
         double initialFee = chosenPool.getInitialFee();
         double ratioProbability = chosenPool.getRatioProbability();
-        int userStep = poolService.getUserStep(user);
+        int userStep = poolService.getUserStep(chosenPool, user);
 
         return calculateFee(initialFee, ratioProbability, userStep);
     }
@@ -209,5 +227,16 @@ public abstract class Action {
         }
 
         return result.toString();
+    }
+
+    protected String getFeeWithUsdt(UserDto user) {
+        MathContext context = new MathContext(2, RoundingMode.HALF_UP);
+
+        BigDecimal fee = getFee(user);
+        CoinDto coin = coinService.getMainCoin();
+        double price = moralisService.getPriceForCoin(coin);
+        BigDecimal usdtFee = new BigDecimal(price * fee.doubleValue(), context);
+
+        return fee + " ($" + usdtFee + ") ";
     }
 }
