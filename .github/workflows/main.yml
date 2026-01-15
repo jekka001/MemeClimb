@@ -1,18 +1,27 @@
-- name: GitHub SOC2 Audit Evidence Exporter
-  # You may pin to the exact commit or the version.
-  # uses: jekka001/audit-evidence@eb497037e796a1d35a6bf0f4e9a903a592866b3d
-  uses: jekka001/audit-evidence@v1
-  with:
-    # Compliance standard (currently only SOC2 supported)
-    standard: # optional, default is SOC2
-    # GitHub organization name
-    org: 
-    # GitHub repository name (optional, for repo-level checks)
-    repo: # optional
-    # Output format: pdf or json
-    format: # optional, default is pdf
-    # Create ZIP archive of all evidence (paid tier only)
-    create-zip: # optional, default is false
-    # License key for paid features
-    license-key: # optional
-          
+name: Test SOC2 Action
+
+on:
+  workflow_dispatch:   # ручний запуск з GitHub
+
+jobs:
+  audit-evidence:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: GitHub SOC2 Audit Evidence Exporter
+        uses: jekka001/audit-evidence@v1
+        with:
+          standard: SOC2
+          org: jekka001
+          repo: audit-evidence
+          license-key: ${{ secrets.AUDIT_EVIDENCE_LICENSE_KEY }}
+          create-zip: true
+
+      - name: Upload audit evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: soc2-evidence
+          path: audit-evidence/
