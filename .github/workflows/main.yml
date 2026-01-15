@@ -16,6 +16,7 @@ jobs:
         with:
           standard: SOC2
           org: jekka001
+          repo: MemeClimb
           license-key: ${{ secrets.AUDIT_EVIDENCE_LICENSE_KEY }}
           create-zip: true
 
