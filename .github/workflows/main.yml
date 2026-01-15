@@ -12,6 +12,8 @@ jobs:
         uses: actions/checkout@v3
 
       - name: GitHub SOC2 Audit Evidence Exporter
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_PAT }}
         uses: jekka001/audit-evidence@v1
         with:
           standard: SOC2
