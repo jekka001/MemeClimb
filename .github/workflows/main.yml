@@ -1,4 +1,4 @@
-            - name: GitHub SOC2 Audit Evidence Exporter
+- name: GitHub SOC2 Audit Evidence Exporter
   # You may pin to the exact commit or the version.
   # uses: jekka001/audit-evidence@eb497037e796a1d35a6bf0f4e9a903a592866b3d
   uses: jekka001/audit-evidence@v1
